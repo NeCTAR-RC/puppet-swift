@@ -1,0 +1,73 @@
+[DEFAULT]
+<% if swift_protocol == 'https' %>
+bind_port = 8889
+bind_ip = 127.0.0.1
+<% else %>
+bind_port = 8888
+bind_ip = 0.0.0.0
+<% end %>
+user = swift
+workers = <%= workers %>
+
+[pipeline:main]
+pipeline = catch_errors healthcheck cache swift3 s3token authtoken keystone proxy-server
+
+[app:proxy-server]
+use = egg:swift#proxy
+allow_account_management = true
+account_autocreate = true
+set log_name = swift-proxy-server
+set log_facility = LOG_LOCAL0
+set log_level = INFO
+set access_log_name = swift-proxy-server
+set access_log_facility = LOG_LOCAL0
+set access_log_level = INFO
+set log_headers = True
+memcache_servers = <%= swift_memcached_servers %>
+client_timeout = 600
+ 
+[filter:keystone]
+paste.filter_factory = keystone.middleware.swift_auth:filter_factory
+operator_roles = Admin, swiftoperator, admin, Member
+
+[filter:swift3]
+use = egg:swift#swift3
+
+[filter:s3token]
+paste.filter_factory = keystone.middleware.s3_token:filter_factory
+auth_port = 35357
+auth_host = <%= keystone_host %>
+auth_protocol = <%= keystone_protocol %>
+service_protocol = <%= keystone_protocol %>
+service_port = 5000
+service_host = <%= keystone_host %>
+admin_tenant_name = <%= keystone_service_tenant %>
+admin_user = <%= swift_keystone_user %>
+admin_password = <%= swift_keystone_password %>
+
+[filter:authtoken]
+paste.filter_factory = keystone.middleware.auth_token:filter_factory
+# Delaying the auth decision is required to support token-less
+# usage for anonymous referrers ('.r:*').
+service_protocol = <%= keystone_protocol %>
+auth_protocol = <%= keystone_protocol %>
+delay_auth_decision = 1
+service_port = 5000
+service_host = <%= keystone_host %>
+auth_port = 35357
+auth_host = <%= keystone_host %>
+admin_tenant_name = <%= keystone_service_tenant %>
+admin_user = <%= swift_keystone_user %>
+admin_password = <%= swift_keystone_password %>
+
+[filter:cache]
+use = egg:swift#memcache
+set log_name = cache
+
+[filter:catch_errors]
+use = egg:swift#catch_errors
+
+[filter:healthcheck]
+use = egg:swift#healthcheck
+
+
