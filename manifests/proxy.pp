@@ -16,9 +16,9 @@ class swift::proxy inherits swift {
 
   file { '/etc/swift/proxy-server.conf':
     ensure  => file,
-    owner   => root,
-    group   => root,
-    content => template('swift/proxy-server.conf.erb'),
+    owner   => swift,
+    group   => swift,
+    content => template("swift/${openstack_version}/proxy-server.conf.erb"),
     require => Package['swift-proxy'],
   }
 
@@ -42,7 +42,6 @@ class swift::proxy inherits swift {
         servicegroups => 'openstack-endpoints';
     }
   }
-
 
   nagios::nrpe::service {
     'service_swift-proxy-server':

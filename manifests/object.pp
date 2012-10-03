@@ -17,7 +17,7 @@ class swift::object {
     owner   => swift,
     group   => swift,
     require => Package['swift-object'],
-    content => template('swift/object-server.conf.erb'),
+    content => template("swift/${openstack_version}/object-server.conf.erb"),
   }
 
   service { 'swift-object':

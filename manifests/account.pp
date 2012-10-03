@@ -17,7 +17,7 @@ class swift::account {
     owner   => swift,
     group   => swift,
     require => Package['swift-account'],
-    content => template('swift/account-server.conf.erb'),
+    content => template("swift/${openstack_version}/account-server.conf.erb"),
   }
 
   service { 'swift-account':

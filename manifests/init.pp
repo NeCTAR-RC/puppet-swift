@@ -12,9 +12,9 @@ class swift {
 
   file { '/etc/swift/swift.conf':
     ensure  => file,
-    owner   => root,
-    group   => root,
-    content => template('swift/swift.conf.erb'),
+    owner   => swift,
+    group   => swift,
+    content => template("swift/${openstack_version}/swift.conf.erb"),
   }
 
 }

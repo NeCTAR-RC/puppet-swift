@@ -17,7 +17,7 @@ class swift::container {
     owner   => swift,
     group   => swift,
     require => Package['swift-container'],
-    content => template('swift/container-server.conf.erb'),
+    content => template("swift/${openstack_version}/container-server.conf.erb"),
   }
 
   service { 'swift-container':
