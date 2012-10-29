@@ -12,6 +12,12 @@ class swift::proxy inherits swift {
     ensure  => present,
   }
 
+  if $openstack_version == 'folsom' {
+    package { 'swift-plugin-s3':
+      ensure => installed,
+    }
+  }
+  
   realize Package['python-keystone']
 
   file { '/etc/swift/proxy-server.conf':
