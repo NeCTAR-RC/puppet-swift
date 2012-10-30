@@ -25,13 +25,22 @@ class swift::proxy inherits swift {
     owner   => swift,
     group   => swift,
     content => template("swift/${openstack_version}/proxy-server.conf.erb"),
+    notify  => Service['swift-proxy'],
+    require => Package['swift-proxy'],
+  }
+
+  file { '/etc/swift/memcache.conf':
+    ensure  => file,
+    owner   => swift,
+    group   => swift,
+    content => template("swift/${openstack_version}/memcache.conf.erb"),
+    notify  => Service['swift-proxy'],
     require => Package['swift-proxy'],
   }
 
   service { 'swift-proxy':
     ensure     => running,
     enable     => true,
-    subscribe  => File['/etc/swift/proxy-server.conf'],
   }
 
   if $::swift_protocol == 'https' {
