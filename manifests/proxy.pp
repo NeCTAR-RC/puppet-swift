@@ -39,8 +39,9 @@ class swift::proxy inherits swift {
   }
 
   service { 'swift-proxy':
-    ensure     => running,
-    enable     => true,
+    ensure    => running,
+    enable    => true,
+    subscribe => File['/etc/swift/swift.conf'],
   }
 
   if $::swift_protocol == 'https' {

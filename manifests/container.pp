@@ -23,25 +23,29 @@ class swift::container {
   service { 'swift-container':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/container-server.conf'],
+    subscribe => [ File['/etc/swift/container-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-container-replicator':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/container-server.conf'],
+    subscribe => [ File['/etc/swift/container-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-container-updater':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/container-server.conf'],
+    subscribe => [ File['/etc/swift/container-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-container-auditor':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/container-server.conf'],
+    subscribe => [ File['/etc/swift/container-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   nagios::service {

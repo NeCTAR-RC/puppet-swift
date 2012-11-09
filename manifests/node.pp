@@ -25,6 +25,11 @@ class swift::node inherits swift {
     ensure => installed,
   }
 
+  file {'/var/cache/swift':
+    owner => swift,
+    group => swift,
+  }
+
   include swift::object
   include swift::container
   include swift::account

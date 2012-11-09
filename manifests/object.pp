@@ -23,25 +23,29 @@ class swift::object {
   service { 'swift-object':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/object-server.conf'],
+    subscribe => [ File['/etc/swift/object-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-object-replicator':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/object-server.conf'],
+    subscribe => [ File['/etc/swift/object-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-object-updater':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/object-server.conf'],
+    subscribe => [ File['/etc/swift/object-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-object-auditor':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/object-server.conf'],
+    subscribe => [ File['/etc/swift/object-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   nagios::service {

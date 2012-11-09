@@ -23,19 +23,22 @@ class swift::account {
   service { 'swift-account':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/account-server.conf'],
+    subscribe => [ File['/etc/swift/account-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-account-replicator':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/account-server.conf'],
+    subscribe => [ File['/etc/swift/account-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   service { 'swift-account-auditor':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/account-server.conf'],
+    subscribe => [ File['/etc/swift/account-server.conf'],
+                   File['/etc/swift/swift.conf']],
   }
 
   nagios::service {
