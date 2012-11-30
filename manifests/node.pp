@@ -19,7 +19,9 @@ class swift::node inherits swift {
 
   file { '/srv/node':
     ensure => directory,
-  }
+    owner  => swift,
+    group  => swift,
+ }
 
   package { 'xfsprogs':
     ensure => installed,
