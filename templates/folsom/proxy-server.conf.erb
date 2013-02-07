@@ -41,6 +41,7 @@ admin_user = <%= swift_keystone_user %>
 admin_password = <%= swift_keystone_password %>
 signing_dir = /etc/swift
 delay_auth_decision = 1
+memcache_servers = <%= swift_memcached_servers %>
 
 [filter:keystoneauth]
 use = egg:swift#keystoneauth
