@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAABn///9w\u003d",
+        "filename": "templates/folsom/swift.conf.erb",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2013-02-20T23:08:25Z",
+      "side": 1,
+      "message": "Can we rename $hash to something more descriptive?",
+      "revId": "51741a85770f8a3968465a2487b8582ec49715ec",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
