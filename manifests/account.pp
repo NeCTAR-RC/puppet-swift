@@ -1,10 +1,4 @@
-class swift::account {
-
-  if !$::swift_account_workers {
-    $workers = 2
-    } else {
-    $workers = $::swift_account_workers
-  }
+class swift::account($workers=2) {
 
   $total_procs = 1 + $workers
 

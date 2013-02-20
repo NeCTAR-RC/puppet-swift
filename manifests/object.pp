@@ -1,10 +1,4 @@
-class swift::object {
-
-  if !$::swift_object_workers {
-    $workers = 2
-    } else {
-    $workers = $::swift_object_workers
-  }
+class swift::object($workers=2) {
 
   $total_procs = 1 + $workers
 

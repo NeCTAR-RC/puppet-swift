@@ -1,10 +1,4 @@
-class swift::container {
-
-  if !$::swift_container_workers {
-    $workers = 2
-    } else {
-    $workers = $::swift_container_workers
-  }
+class swift::container($workers=2) {
 
   $total_procs = 1 + $workers
 
