@@ -1,10 +1,4 @@
-class swift::proxy inherits swift {
-  if !$::swift_proxy_workers {
-    $workers = 8
-  }
-  else {
-    $workers = $::swift_proxy_workers
-  }
+class swift::proxy($workers=8, $protocol='https', $memcache_servers) inherits swift {
 
   $total_procs = 1 + $workers
 
@@ -44,7 +38,7 @@ class swift::proxy inherits swift {
     subscribe => File['/etc/swift/swift.conf'],
   }
 
-  if $::swift_protocol == 'https' {
+  if $protocol == 'https' {
     nagios::service {
       'http_swift-proxy_8888':
         check_command => 'check_swift_ssl!8888',
