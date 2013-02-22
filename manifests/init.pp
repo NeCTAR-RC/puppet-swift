@@ -1,4 +1,4 @@
-class swift($hash) {
+class swift($swift_hash) {
 
   $keystone_host = hiera('keystone::host')
   $keystone_protocol = hiera('keystone::protocol')
