@@ -4,11 +4,11 @@ puppet-swift
 Variables
 ---------
 
- * swift_keystone_user
- * swift_keystone_password
- * swift_protocol
- * swift_memcached_servers
- * swift_hash
+ * swift::keystone_user
+ * swift::keystone_password
+ * swift::protocol
+ * swift::memcached_servers
+ * swift::swift_hash
 
 Openstack
 
@@ -16,9 +16,9 @@ Openstack
 
 Keystone
 
- * keystone_service_tenant
- * keystone_host
- * keystone_protocol
+ * keystone::service_tenant
+ * keystone::host
+ * keystone::protocol
 
 
 Classes
