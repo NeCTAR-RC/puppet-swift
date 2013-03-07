@@ -1,0 +1,8 @@
+Change-Id: Ic15be64fb386582310c770096f6670cc89d46b7e
+Code-Review+2: Sam Morrison <sam.morrison@unimelb.edu.au>
+Verified+1: Jenkins <rc-melbourne@nectar.org.au>
+Submitted-by: Sam Morrison <sam.morrison@unimelb.edu.au>
+Submitted-at: Thu, 07 Mar 2013 11:29:51 +1100
+Reviewed-on: https://review.rc.nectar.org.au/151
+Project: NeCTAR-RC/puppet-swift
+Branch: refs/heads/production
