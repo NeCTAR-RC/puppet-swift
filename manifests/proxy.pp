@@ -1,5 +1,8 @@
-class swift::proxy($workers=8, $protocol='https', $memcache_servers) inherits swift {
+class swift::proxy($keystone_user, $keystone_password, $workers=8, $protocol='https', $memcache_servers) inherits swift {
 
+  $keystone_host = hiera('keystone::host')
+  $keystone_protocol = hiera('keystone::protocol')
+  $keystone_service_tenant = hiera('keystone::service_tenant')
   $total_procs = 1 + $workers
 
   package { 'swift-proxy':

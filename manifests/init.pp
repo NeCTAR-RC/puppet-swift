@@ -1,11 +1,5 @@
 class swift($swift_hash) {
 
-  $keystone_host = hiera('keystone::host')
-  $keystone_protocol = hiera('keystone::protocol')
-  $keystone_service_tenant = hiera('keystone::service_tenant')
-  $keystone_user = hiera('swift::keystone_user')
-  $keystone_password = hiera('swift::keystone_password')
-
   package { 'swift':
     ensure => installed,
   }
