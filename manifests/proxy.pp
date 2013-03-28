@@ -71,7 +71,7 @@ class swift::proxy($keystone_user, $keystone_password, $workers=8, $protocol='ht
     owner  => root,
     group  => root,
     mode   => '0775',
-    source => 'puppet:///modules/glance/check_swift_object_servers',
+    source => 'puppet:///modules/swift/check_swift_object_servers',
   }
 
   $nagios_keystone_user = hiera('nagios::keystone_user')
@@ -104,7 +104,7 @@ class swift::proxy::nagios-checks {
     owner  => root,
     group  => root,
     mode   => '0775',
-    source => 'puppet:///modules/glance/check_swift',
+    source => 'puppet:///modules/swift/check_swift',
   }
 
 }
