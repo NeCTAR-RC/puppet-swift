@@ -63,8 +63,22 @@ class swift::proxy($keystone_user, $keystone_password, $workers=8, $protocol='ht
 
   nagios::nrpe::service {
     'swift_object_servers':
-      check_command => "/usr/lib/nagios/plugins/check_swift_object_servers"
+      check_command => "/usr/local/lib/nagios/plugins/check_swift_object_servers"
   }
+
+  file {'/usr/local/lib/nagios/plugins/check_swift_object_servers':
+    ensure => present,
+    owner  => root,
+    group  => root,
+    mode   => '0775',
+    source => 'puppet:///modules/glance/check_swift_object_servers',
+  }
+
+  $nagios_keystone_user = hiera('nagios::keystone_user')
+  $nagios_keystone_pass = hiera('nagios::keystone_pass')
+  $nagios_keystone_tenant = hiera('nagios::keystone_tenant')
+  $nagios_image_count = hiera('nagios::image_count')
+  $nagios_image = hiera('nagios::image')
 
   nagios::service {
     'check_swift':
@@ -82,6 +96,15 @@ class swift::proxy::nagios-checks {
     'check_swift_internal':
       check_command => '/usr/lib/nagios/plugins/check_http -p \'$ARG1$\' -e 400 -H \'$HOSTADDRESS$\' -I \'$HOSTADDRESS$\'';
     'check_swift_operations':
-      check_command => '/usr/lib/nagios/plugins/check_swift -A \'$ARG1$\' -U \'$ARG2$\' -P \'$ARG3$\' -T \'$ARG4$\' -c nagios';
+      check_command => '/usr/local/lib/nagios/plugins/check_swift -A \'$ARG1$\' -U \'$ARG2$\' -P \'$ARG3$\' -T \'$ARG4$\' -c nagios';
   }
+
+  file {'/usr/local/lib/nagios/plugins/check_swift':
+    ensure => present,
+    owner  => root,
+    group  => root,
+    mode   => '0775',
+    source => 'puppet:///modules/glance/check_swift',
+  }
+
 }
