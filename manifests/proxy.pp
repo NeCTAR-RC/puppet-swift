@@ -1,4 +1,11 @@
-class swift::proxy($keystone_user, $keystone_password, $workers=8, $protocol='https', $memcache_servers) inherits swift {
+class swift::proxy($listen='0.0.0.0',
+                   $port=8888,
+                   $ssl=true,
+                   $keystone_user,
+                   $keystone_password,
+                   $workers=8,
+                   $memcache_servers) inherits swift
+{
 
   $keystone_host = hiera('keystone::host')
   $keystone_protocol = hiera('keystone::protocol')
@@ -9,12 +16,10 @@ class swift::proxy($keystone_user, $keystone_password, $workers=8, $protocol='ht
     ensure  => present,
   }
 
-  if $openstack_version == 'folsom' {
-    package { 'swift-plugin-s3':
-      ensure => installed,
-    }
+  package { 'swift-plugin-s3':
+    ensure => installed,
   }
-  
+
   realize Package['python-keystone']
 
   file { '/etc/swift/proxy-server.conf':
@@ -41,7 +46,7 @@ class swift::proxy($keystone_user, $keystone_password, $workers=8, $protocol='ht
     subscribe => File['/etc/swift/swift.conf'],
   }
 
-  if $protocol == 'https' {
+  if $ssl {
     nagios::service {
       'http_swift-proxy_8888':
         check_command => 'check_swift_ssl!8888',

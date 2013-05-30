@@ -1,11 +1,6 @@
 [DEFAULT]
-<% if protocol == 'https' %>
-bind_port = 8889
-bind_ip = 127.0.0.1
-<% else %>
-bind_port = 8888
-bind_ip = 0.0.0.0
-<% end %>
+bind_port = <%= port %>
+bind_ip = <%= listen %>
 user = swift
 workers = <%= workers %>
 
