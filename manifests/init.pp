@@ -1,5 +1,7 @@
 class swift($swift_hash) {
 
+  $openstack_version = hiera('openstack_version')
+
   package { 'swift':
     ensure => installed,
   }
