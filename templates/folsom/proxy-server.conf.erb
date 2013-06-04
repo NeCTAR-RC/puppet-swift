@@ -4,10 +4,6 @@ bind_ip = <%= listen %>
 user = swift
 workers = <%= workers %>
 
-log_name = swift-proxy
-log_facility = LOG_LOCAL0
-log_level = DEBUG
-
 [pipeline:main]
 pipeline = catch_errors healthcheck cache tempurl formpost swift3 s3token authtoken keystoneauth proxy-server
 

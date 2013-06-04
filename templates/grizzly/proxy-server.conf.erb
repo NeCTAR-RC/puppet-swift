@@ -5,7 +5,7 @@ user = swift
 workers = <%= workers %>
 
 [pipeline:main]
-pipeline = healthcheck cache swift3 s3token authtoken keystone account-quotas container-quotas proxy-server
+pipeline = healthcheck cache tempurl formpost swift3 s3token authtoken keystone account-quotas container-quotas proxy-server
 
 
 [app:proxy-server]
@@ -67,3 +67,5 @@ use = egg:swift3#swift3
 [filter:tempurl]
 use = egg:swift#tempurl
 
+[filter:formpost]
+use = egg:swift#formpost
