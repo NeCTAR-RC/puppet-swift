@@ -31,6 +31,7 @@ admin_tenant_name = <%= keystone_service_tenant %>
 admin_user = <%= keystone_user %>
 admin_password = <%= keystone_password %>
 signing_dir = /etc/swift
+cache = swift.cache
 
 [filter:s3token]
 paste.filter_factory = keystone.middleware.s3_token:filter_factory
@@ -50,7 +51,6 @@ use = egg:swift#account_quotas
 [filter:cache]
 use = egg:swift#memcache
 set log_name = cache
-memcache_servers = <%= memcache_servers %>
 
 [filter:catch_errors]
 use = egg:swift#catch_errors
