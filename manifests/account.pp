@@ -1,5 +1,6 @@
 class swift::account($workers=2) {
 
+  $openstack_version = hiera('openstack_version')
   $total_procs = 1 + $workers
 
   package { 'swift-account':
