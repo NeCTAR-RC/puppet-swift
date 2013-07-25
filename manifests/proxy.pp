@@ -46,6 +46,12 @@ class swift::proxy($listen='0.0.0.0',
     subscribe => File['/etc/swift/swift.conf'],
   }
 
+  firewall { '100 swift-proxy':
+    dport   => 8888,
+    proto  => tcp,
+    action => accept,
+  }
+
   if $ssl {
     nagios::service {
       'http_swift-proxy_8888':
