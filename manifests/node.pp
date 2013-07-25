@@ -32,6 +32,13 @@ class swift::node inherits swift {
     group => swift,
   }
 
+  $stg_hosts = hiera('firewall::swift_storage_hosts', [])
+  firewall::multisource {[ prefix($stg_hosts, '100 swift-node,') ]:
+    proto  => 'tcp',
+    dport  => [873, 6000, 6001, 6002],
+    action => accept,
+  }
+
   include swift::object
   include swift::container
   include swift::account
