@@ -32,6 +32,20 @@ class swift::node inherits swift {
     group => swift,
   }
 
+  file {'/etc/swift/drive-audit.conf':
+    owner   => swift,
+    group   => swift,
+    content => template('swift/drive-audit.conf.erb')
+  }
+
+  cron { 'drive-audit':
+    ensure  => present,
+    command => 'swift-drive-audit /etc/swift/drive-audit.conf',
+    user    => 'root',
+    minute  => 0,
+    require => File['/etc/swift/drive-audit.conf'],
+  }
+
   $stg_hosts = hiera('firewall::swift_storage_hosts', [])
   firewall::multisource {[ prefix($stg_hosts, '100 swift-node,') ]:
     proto  => 'tcp',
