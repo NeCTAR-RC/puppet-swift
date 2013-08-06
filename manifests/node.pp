@@ -46,6 +46,19 @@ class swift::node inherits swift {
     require => File['/etc/swift/drive-audit.conf'],
   }
 
+  file { '/etc/sysctl.d/60-swift.conf':
+    owner  => root,
+    group  => root,
+    mode   => 0644,
+    source => 'puppet:///modules/swift/60-swift-sysctl.conf',
+    notify => Exec[sysctl-swift],
+  }
+
+  exec { 'sysctl-swift':
+    command     => '/sbin/sysctl -p /etc/sysctl.d/60-swift.conf',
+    refreshonly => true,
+  }
+
   $stg_hosts = hiera('firewall::swift_storage_hosts', [])
   firewall::multisource {[ prefix($stg_hosts, '100 swift-node,') ]:
     proto  => 'tcp',
