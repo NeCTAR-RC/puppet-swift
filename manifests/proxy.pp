@@ -74,16 +74,24 @@ class swift::proxy($listen='0.0.0.0',
 
   nagios::nrpe::service {
     'swift_object_servers':
-      check_command => "/usr/local/lib/nagios/plugins/check_swift_object_servers"
+      check_command => "sudo /usr/local/lib/nagios/plugins/check_swift_object_servers"
   }
 
-  file {'/usr/local/lib/nagios/plugins/check_swift_object_servers':
+  file { '/usr/local/lib/nagios/plugins/check_swift_object_servers':
     ensure => present,
     owner  => root,
     group  => root,
     mode   => '0775',
     source => 'puppet:///modules/swift/check_swift_object_servers',
   }
+
+  file { '/etc/sudoers.d/nagios_swift_object_servers':
+    owner   => root,
+    group   => root,
+    mode    => '0440',
+    source  => 'puppet:///modules/swift/sudoers_nagios_swift_object_servers',
+  }
+
 
   $nagios_keystone_user = hiera('nagios::keystone_user')
   $nagios_keystone_pass = hiera('nagios::keystone_pass')
@@ -110,7 +118,7 @@ class swift::proxy::nagios-checks {
       check_command => '/usr/local/lib/nagios/plugins/check_swift -A \'$ARG1$\' -U \'$ARG2$\' -P \'$ARG3$\' -T \'$ARG4$\' -c nagios';
   }
 
-  file {'/usr/local/lib/nagios/plugins/check_swift':
+  file { '/usr/local/lib/nagios/plugins/check_swift':
     ensure => present,
     owner  => root,
     group  => root,
