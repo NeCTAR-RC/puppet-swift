@@ -10,13 +10,14 @@ class swift($swift_hash) {
     ensure  => directory,
     owner   => swift,
     group   => swift,
+    mode    => '0775'
   }
 
   file { '/etc/swift/swift.conf':
     ensure  => present,
     owner   => swift,
     group   => swift,
-    mode    => '0640',
+    mode    => '0644',
     content => template("swift/${openstack_version}/swift.conf.erb"),
   }
 
