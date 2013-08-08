@@ -10,6 +10,7 @@ class swift($swift_hash) {
     ensure  => directory,
     owner   => swift,
     group   => swift,
+    mode    => '0770'
   }
 
   file { '/etc/swift/swift.conf':
