@@ -5,7 +5,7 @@ user = swift
 workers = <%= workers %>
 
 [pipeline:main]
-pipeline = healthcheck cache tempurl formpost swift3 s3token authtoken keystone account-quotas container-quotas proxy-server
+pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone account-quotas container-quotas proxy-server
 
 
 [app:proxy-server]
@@ -69,3 +69,8 @@ use = egg:swift#tempurl
 
 [filter:formpost]
 use = egg:swift#formpost
+
+[filter:bulk]
+use = egg:swift#bulk
+max_containers_per_extraction = 10000
+max_failed_files = 1000
