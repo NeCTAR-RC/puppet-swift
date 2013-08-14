@@ -56,7 +56,7 @@ class swift::node inherits swift {
 
   exec { 'sysctl-swift':
     command     => '/sbin/sysctl -p /etc/sysctl.d/60-swift.conf',
-    refreshonly => true,
+    unless      => '/usr/bin/test `sysctl -e -n net.nf_conntrack_max` -eq 262144',
   }
 
   $stg_hosts = hiera('firewall::swift_storage_hosts', [])
