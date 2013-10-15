@@ -1,0 +1,8 @@
+Change-Id: If97aa9fad27b56c862fa0597ee358e0aa981d24b
+Code-Review+2: Russell Sim <russell.sim@gmail.com>
+Verified+1: Russell Sim <russell.sim@gmail.com>
+Submitted-by: Russell Sim <russell.sim@gmail.com>
+Submitted-at: Wed, 16 Oct 2013 09:54:55 +1100
+Reviewed-on: https://review.rc.nectar.org.au/905
+Project: NeCTAR-RC/puppet-swift
+Branch: refs/meta/config
