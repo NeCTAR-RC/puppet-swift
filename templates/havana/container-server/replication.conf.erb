@@ -1,0 +1,15 @@
+[DEFAULT]
+bind_ip = 0.0.0.0
+bind_port = <%= container_replication_port %>
+workers = <%= workers %>
+set log_level = WARN
+log_level = WARN
+
+[pipeline:main]
+pipeline = container-server
+
+[app:container-server]
+use = egg:swift#container
+replication_server = true
+
+[container-replicator]
