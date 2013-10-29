@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAATn//+rw\u003d",
+        "filename": "templates/havana/proxy-server.conf.erb",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2013-10-29T23:32:57Z",
+      "side": 1,
+      "message": "swiftoperator and _member_ shouldn\u0027t be in here",
+      "revId": "c9aa1c5a48ea33d3357d4007b7f5da7e001a1447",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAATn//+rs\u003d",
+        "filename": "templates/havana/rsync.conf.erb",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2013-10-29T23:32:57Z",
+      "side": 1,
+      "message": "In grizzly we don\u0027t specify address so it listens on all so I think this line can be removed",
+      "revId": "c9aa1c5a48ea33d3357d4007b7f5da7e001a1447",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
