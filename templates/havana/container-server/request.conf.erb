@@ -1,0 +1,23 @@
+[DEFAULT]
+bind_ip = 0.0.0.0
+workers = <%= workers %>
+set log_level = WARN
+log_level = WARN
+
+[pipeline:main]
+pipeline = recon container-server
+
+
+[app:container-server]
+use = egg:swift#container
+replication_server = false
+
+[container-replicator]
+
+[container-updater]
+
+[container-auditor]
+
+[filter:recon]
+use = egg:swift#recon
+recon_cache_path = /var/cache/swift
