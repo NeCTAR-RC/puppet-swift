@@ -28,14 +28,14 @@ class swift::account($workers=2) {
     subscribe => [ File['/etc/swift/account-server.conf'],
                    File['/etc/swift/swift.conf']],
   }
-
+  
   service { 'swift-account-auditor':
     ensure    => running,
     enable    => true,
     subscribe => [ File['/etc/swift/account-server.conf'],
                    File['/etc/swift/swift.conf']],
   }
-
+  
   nagios::service {
     'http_swift-account_6002':
       check_command => 'check_swift_internal!6002';
