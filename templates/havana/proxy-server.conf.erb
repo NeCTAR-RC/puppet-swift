@@ -1,0 +1,83 @@
+[DEFAULT]
+bind_port = <%= port %>
+bind_ip = <%= listen %>
+user = swift
+workers = <%= workers %>
+
+[pipeline:main]
+pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone account-quotas container-quotas proxy-server
+
+
+[app:proxy-server]
+use = egg:swift#proxy
+allow_account_management = true
+account_autocreate = true
+<% if sort_method == 'affinity' %>
+sorting_method = <%= sort_method %>
+#request_node_count = 1 * replicas
+#read_affinity =
+#write_affinity = r1, r2
+#write_affinity_node_count = 1 * replicas
+<% end %>
+
+[filter:keystone]
+use = egg:swift#keystoneauth
+operator_roles = Admin,Member,admin, swiftoperator, _member_, ResellerAdmin
+is_admin = true
+cache = swift.cache
+
+[filter:authtoken]
+paste.filter_factory = keystoneclient.middleware.auth_token:filter_factory
+# Delaying the auth decision is required to support token-less
+# usage for anonymous referrers ('.r:*').
+delay_auth_decision = 1
+auth_port = 35357
+auth_host = <%= keystone_host %>
+auth_protocol = <%= keystone_protocol %>
+admin_tenant_name = <%= keystone_service_tenant %>
+admin_user = <%= keystone_user %>
+admin_password = <%= keystone_password %>
+signing_dir = /etc/swift
+cache = swift.cache
+
+[filter:s3token]
+paste.filter_factory = keystone.middleware.s3_token:filter_factory
+auth_port = 35357
+auth_host = <%= keystone_host %>
+auth_protocol = <%= keystone_protocol %>
+admin_tenant_name = <%= keystone_service_tenant %>
+admin_user = <%= keystone_user %>
+admin_password = <%= keystone_password %>
+
+[filter:container-quotas]
+use = egg:swift#container_quotas
+
+[filter:account-quotas]
+use = egg:swift#account_quotas
+
+[filter:cache]
+use = egg:swift#memcache
+set log_name = cache
+
+[filter:catch_errors]
+use = egg:swift#catch_errors
+
+[filter:healthcheck]
+use = egg:swift#healthcheck
+
+[filter:proxy-logging]
+use = egg:swift#proxy_logging
+
+[filter:swift3]
+use = egg:swift3#swift3
+
+[filter:tempurl]
+use = egg:swift#tempurl
+
+[filter:formpost]
+use = egg:swift#formpost
+
+[filter:bulk]
+use = egg:swift#bulk
+max_containers_per_extraction = 10000
+max_failed_files = 1000

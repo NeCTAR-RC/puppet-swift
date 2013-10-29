@@ -10,6 +10,7 @@ class swift::proxy($listen='0.0.0.0',
   $keystone_host = hiera('keystone::host')
   $keystone_protocol = hiera('keystone::protocol')
   $keystone_service_tenant = hiera('keystone::service_tenant')
+  $sort_method = hiera('swift::proxy::sort_method')
   $total_procs = 1 + $workers
 
   package { 'swift-proxy':
