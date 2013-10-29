@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAATn//+qg\u003d",
+        "filename": "templates/havana/proxy-server.conf.erb",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2013-10-29T23:43:38Z",
+      "side": 1,
+      "message": "swiftoperator is still here :-)",
+      "revId": "a3a29cb082bbd8f052ae913a2ad6613288c1c866",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
