@@ -4,6 +4,7 @@ class swift::proxy($listen='0.0.0.0',
                    $keystone_user,
                    $keystone_password,
                    $workers=8,
+                   $read_affinity=false,
                    $memcache_servers) inherits swift
 {
 
