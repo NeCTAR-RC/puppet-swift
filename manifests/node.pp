@@ -1,4 +1,4 @@
-class swift::node inherits swift {
+class swift::node($rsync_connections=2) inherits swift {
 
   file { '/etc/rsyncd.conf':
     ensure  => present,
