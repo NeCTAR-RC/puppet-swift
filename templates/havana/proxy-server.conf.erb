@@ -11,6 +11,9 @@ pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keys
 use = egg:swift#proxy
 allow_account_management = true
 account_autocreate = true
+<% if @read_affinity -%>
+read_affinity = <%= @read_affinity %>
+<% end -%>
 
 [filter:keystone]
 use = egg:swift#keystoneauth
