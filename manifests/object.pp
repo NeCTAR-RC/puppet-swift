@@ -43,6 +43,8 @@ class swift::object($workers=2) {
                    File['/etc/swift/swift.conf']],
   }
 
+  swift::ringcopy { ['object']: }
+
   nagios::service {
     'http_swift-object_6000':
       check_command => 'check_swift_internal!6000';
