@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAT3///a0\u003d",
+        "filename": "manifests/node.pp",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000088
+      },
+      "writtenOn": "2014-03-06T06:36:07Z",
+      "side": 1,
+      "message": "Isn\u0027t this going to conflict with the ringcopy in the swift::object swift::container and swift::account class includes? They will each create the swift::ringcopy resource with the same names as this line.",
+      "revId": "da6b08f2037f4a55d25e9f1c24e4fb83d5add947",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
