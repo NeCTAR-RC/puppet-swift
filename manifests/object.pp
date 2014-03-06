@@ -14,7 +14,7 @@ class swift::object($workers=2) {
     require => Package['swift-object'],
     content => template("swift/${openstack_version}/object-server.conf.erb"),
   }
-
+  
   service { 'swift-object':
     ensure    => running,
     enable    => true,
@@ -42,6 +42,8 @@ class swift::object($workers=2) {
     subscribe => [ File['/etc/swift/object-server.conf'],
                    File['/etc/swift/swift.conf']],
   }
+
+  swift::ringcopy { ['object']: }
 
   nagios::service {
     'http_swift-object_6000':

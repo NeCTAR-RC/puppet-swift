@@ -35,6 +35,8 @@ class swift::account($workers=2) {
     subscribe => [ File['/etc/swift/account-server.conf'],
                    File['/etc/swift/swift.conf']],
   }
+ 
+  swift::ringcopy { ['account']: }
 
   nagios::service {
     'http_swift-account_6002':
