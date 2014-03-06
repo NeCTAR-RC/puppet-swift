@@ -46,6 +46,8 @@ class swift::proxy($listen='0.0.0.0',
     enable    => true,
     subscribe => File['/etc/swift/swift.conf'],
   }
+  
+  swift::ringcopy { ['account', 'object', 'container']: }
 
   firewall { '100 swift-proxy':
     dport   => 8888,
@@ -85,6 +87,7 @@ class swift::proxy($listen='0.0.0.0',
     mode   => '0775',
     source => 'puppet:///modules/swift/check_swift_object_servers',
   }
+  
 
   file { '/etc/sudoers.d/nagios_swift_object_servers':
     owner   => root,

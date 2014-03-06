@@ -58,6 +58,7 @@ class swift::node($rsync_connections=2) inherits swift {
     command     => '/sbin/sysctl -p /etc/sysctl.d/60-swift.conf',
     unless      => '/usr/bin/test `sysctl -e -n net.nf_conntrack_max` -eq 262144',
   }
+  swift::ringcopy { ['account','container','object']: }
 
   $stg_hosts = hiera('firewall::swift_storage_hosts', [])
   firewall::multisource {[ prefix($stg_hosts, '100 swift-node,') ]:
