@@ -47,6 +47,8 @@ class swift::proxy($listen='0.0.0.0',
     subscribe => File['/etc/swift/swift.conf'],
   }
 
+  swift::ringcopy { ['account', 'object', 'container']: }
+
   firewall { '100 swift-proxy':
     dport   => 8888,
     proto  => tcp,

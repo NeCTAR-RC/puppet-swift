@@ -43,6 +43,8 @@ class swift::container($workers=2) {
                    File['/etc/swift/swift.conf']],
   }
 
+  swift::ringcopy { ['container']: }
+
   nagios::service {
     'http_swift-container_6001':
       check_command => 'check_swift_internal!6001';

@@ -36,6 +36,8 @@ class swift::account($workers=2) {
                    File['/etc/swift/swift.conf']],
   }
 
+  swift::ringcopy { ['account']: }
+
   nagios::service {
     'http_swift-account_6002':
       check_command => 'check_swift_internal!6002';
