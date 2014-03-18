@@ -11,6 +11,7 @@ pipeline = recon object-server
 use = egg:swift#object
 
 [object-replicator]
+rsync_io_timeout = <%= rsync_timeout %>
 
 [object-updater]
 
