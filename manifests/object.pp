@@ -1,4 +1,4 @@
-class swift::object($workers=2) {
+class swift::object($workers=2, $rsync_timeout=300) {
 
   $openstack_version = hiera('openstack_version')
   $total_procs = 1 + $workers
