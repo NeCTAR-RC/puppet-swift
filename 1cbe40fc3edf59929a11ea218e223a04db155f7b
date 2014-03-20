@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAT3///TE\u003d",
+        "filename": "templates/havana/object-server.conf.erb",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000085
+      },
+      "writtenOn": "2014-03-20T05:31:08Z",
+      "side": 1,
+      "message": "Should use the new @rsync_timeout syntax for referencing variables",
+      "revId": "1cbe40fc3edf59929a11ea218e223a04db155f7b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
