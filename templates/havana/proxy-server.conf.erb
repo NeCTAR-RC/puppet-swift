@@ -15,6 +15,10 @@ account_autocreate = true
 sorting_method = affinity
 read_affinity = <%= @read_affinity %>
 <% end -%>
+<% if @write_affinity -%>
+write_affinity = <%= @write_affinity %>
+write_affinity_node_count = <%=write_affinity_node_count %> * replicas
+<% end -%>
 
 [filter:keystone]
 use = egg:swift#keystoneauth
