@@ -46,6 +46,14 @@ class swift::node($rsync_connections=2) inherits swift {
     require => File['/etc/swift/drive-audit.conf'],
   }
 
+ cron { 'swift-recon':
+   ensure  => present,
+   command => '/usr/bin/swift-recon-cron /etc/swift/object-server.conf',
+   user    => 'swift',
+   minute  => 5,
+   require => File['/etc/swift/object-server.conf'],
+ }
+ 
   file { '/etc/sysctl.d/60-swift.conf':
     owner  => root,
     group  => root,
