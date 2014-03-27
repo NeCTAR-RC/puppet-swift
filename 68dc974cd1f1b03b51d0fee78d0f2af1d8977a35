@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAT3//+2Q\u003d",
+        "filename": "manifests/object.pp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2014-03-27T22:22:52Z",
+      "side": 1,
+      "message": "Can we set sane defaults for these",
+      "revId": "68dc974cd1f1b03b51d0fee78d0f2af1d8977a35",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
