@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAT3//+ko\u003d",
+        "filename": "manifests/node.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2014-04-03T02:59:43Z",
+      "side": 1,
+      "message": "Do we need include in the logrotate class to create the directory?",
+      "revId": "d8f28a1d0c809a5c2b535de491b0a96c852cf77d",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
