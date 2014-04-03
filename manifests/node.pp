@@ -10,6 +10,11 @@ class swift::node($rsync_connections=2) inherits swift {
     source => 'puppet:///modules/swift/rsync',
   }
 
+  file { '/etc/logrotate.d/rsyncd':
+    ensure => file,
+    source => 'puppet:///modules/swift/logrotate',
+  }
+
   service { 'rsync':
     ensure     => running,
     enable     => true,

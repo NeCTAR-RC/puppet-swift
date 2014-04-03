@@ -1,0 +1,11 @@
+# File is managed by Puppet
+
+/var/log/rsyncd.log
+{
+   rotate 52
+   weekly
+   delaycompress
+   compress
+   missingok
+   notifempty
+}
