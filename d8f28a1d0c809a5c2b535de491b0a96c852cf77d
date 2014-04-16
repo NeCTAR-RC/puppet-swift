@@ -34,6 +34,24 @@
       "revId": "d8f28a1d0c809a5c2b535de491b0a96c852cf77d",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAT3//+Ts\u003d",
+        "filename": "manifests/node.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2014-04-16T06:09:28Z",
+      "side": 1,
+      "message": "Cool, the logrotate review has been submitted so can we implement that here?",
+      "parentUuid": "AAAAT3//+iE\u003d",
+      "revId": "d8f28a1d0c809a5c2b535de491b0a96c852cf77d",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
