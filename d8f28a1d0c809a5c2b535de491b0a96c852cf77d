@@ -16,6 +16,24 @@
       "revId": "d8f28a1d0c809a5c2b535de491b0a96c852cf77d",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAT3//+iE\u003d",
+        "filename": "manifests/node.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000085
+      },
+      "writtenOn": "2014-04-16T01:15:44Z",
+      "side": 1,
+      "message": "Logrotate package comes by default with Ubuntu but we should avoid cross module dependencies anyway. Probably a better fix is to have a Puppet define which puts a logrotate configuration file on the nodes. Defined like so:\n\nlogrotate::rule { \u0027rsyncd\u0027:\n  path    \u003d\u003e \u0027/var/log/rsyncd.log\u0027,\n  options \u003d\u003e [ \u0027rotate 52\u0027, \u0027weekly\u0027, \u0027delaycompress\u0027, \u0027compress\u0027 ]\n}",
+      "parentUuid": "AAAAT3//+ko\u003d",
+      "revId": "d8f28a1d0c809a5c2b535de491b0a96c852cf77d",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
