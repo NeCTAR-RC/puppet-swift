@@ -52,6 +52,24 @@
       "revId": "d8f28a1d0c809a5c2b535de491b0a96c852cf77d",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAT3//+Mw\u003d",
+        "filename": "manifests/node.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000085
+      },
+      "writtenOn": "2014-04-29T05:28:59Z",
+      "side": 1,
+      "message": "Should probably define the logrotate::rule at the puppet node definition so swift module doesn\u0027t depend on logrotate module.",
+      "parentUuid": "AAAAT3//+Ts\u003d",
+      "revId": "d8f28a1d0c809a5c2b535de491b0a96c852cf77d",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
