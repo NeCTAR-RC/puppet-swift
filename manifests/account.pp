@@ -2,6 +2,7 @@ class swift::account($workers=2) {
 
   $openstack_version = hiera('openstack_version')
   $total_procs = 1 + $workers
+  $converged_node = hiera('swift::converged_node')
 
   package { 'swift-account':
     ensure => present,
@@ -36,7 +37,9 @@ class swift::account($workers=2) {
                    File['/etc/swift/swift.conf']],
   }
 
-  swift::ringcopy { ['account']: }
+  if $converged_node == false {
+    swift::ringcopy { ['account']: }
+  }
 
   nagios::service {
     'http_swift-account_6002':
