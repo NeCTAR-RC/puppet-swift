@@ -2,6 +2,7 @@ class swift::container($workers=2) {
 
   $openstack_version = hiera('openstack_version')
   $total_procs = 1 + $workers
+  $converged_node = hiera('swift::converged_node')
 
   package { 'swift-container':
     ensure => present,
@@ -43,7 +44,9 @@ class swift::container($workers=2) {
                    File['/etc/swift/swift.conf']],
   }
 
-  swift::ringcopy { ['container']: }
+  if $converged_node == false {
+    swift::ringcopy { ['container']: }
+  }
 
   nagios::service {
     'http_swift-container_6001':
