@@ -1,4 +1,4 @@
-class swift::account($workers=2) {
+class swift::account($workers=2) inherits swift {
 
   $openstack_version = hiera('openstack_version')
   $total_procs = 1 + $workers
@@ -36,7 +36,9 @@ class swift::account($workers=2) {
                    File['/etc/swift/swift.conf']],
   }
 
-  swift::ringcopy { ['account']: }
+  if $converged_node == false {
+    swift::ringcopy { ['account']: }
+  }
 
   nagios::service {
     'http_swift-account_6002':
