@@ -1,6 +1,5 @@
-class swift::container($workers=2) {
+class swift::container($workers=2) inherits swift {
 
-  $openstack_version = hiera('openstack_version')
   $total_procs = 1 + $workers
 
   package { 'swift-container':
@@ -43,7 +42,9 @@ class swift::container($workers=2) {
                    File['/etc/swift/swift.conf']],
   }
 
-  swift::ringcopy { ['container']: }
+  if $converged_node == false {
+    swift::ringcopy { ['container']: }
+  }
 
   nagios::service {
     'http_swift-container_6001':
