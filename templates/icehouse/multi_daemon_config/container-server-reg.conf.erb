@@ -1,0 +1,19 @@
+[DEFAULT]
+bind_ip = <%= @ipaddress_regnet %>
+workers = <%= @workers %>
+set log_level = WARN
+log_level = WARN
+
+[pipeline:main]
+pipeline = recon container-server
+
+[app:container-server]
+use = egg:swift#container
+
+[container-updater]
+
+[container-auditor]
+
+[filter:recon]
+use = egg:swift#recon
+recon_cache_path = /var/cache/swift
