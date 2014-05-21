@@ -1,0 +1,28 @@
+[DEFAULT]
+bind_ip = 0.0.0.0
+workers = <%= @workers %>
+set log_level = WARN
+log_level = WARN
+
+[pipeline:main]
+pipeline = recon object-server
+
+[app:object-server]
+use = egg:swift#object
+
+[object-replicator]
+rsync_timeout = <%= @rsync_timeout %>
+<% if @rsync_io_timeout -%>
+rsync_io_timeout = <%= @rsync_io_timeout %>
+<% end -%>
+<% if @lockup_timeout -%>
+lockup_timeout = <%= @lockup_timeout %>
+<% end -%>
+
+[object-updater]
+
+[object-auditor]
+
+[filter:recon]
+use = egg:swift#recon
+recon_cache_path = /var/cache/swift
