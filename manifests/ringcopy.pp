@@ -1,10 +1,9 @@
-define swift::ringcopy()
-{
-    file {"/etc/swift/${name}.ring.gz":
-          ensure => file,
-          owner => swift,
-          group => swift,
-          source => "puppet:///modules/swift/ring_file/${name}.ring.gz",
-          }
+define swift::ringcopy($cluster_name='') {
 
+  file { "/etc/swift/${name}.ring.gz":
+    ensure => file,
+    owner  => swift,
+    group  => swift,
+    source => "puppet:///modules/swift/ring_file/${cluster_name}/${name}.ring.gz",
+  }
 }
