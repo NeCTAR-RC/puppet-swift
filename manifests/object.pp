@@ -1,9 +1,11 @@
 class swift::object($workers=2, $rsync_timeout=3600,
-                    $rsync_io_timeout=undef, $lockup_timeout=undef)
+                    $rsync_io_timeout=undef,
+                    $lockup_timeout=undef) inherits swift
 {
 
   $openstack_version = hiera('openstack_version')
   $total_procs = 1 + $workers
+  $converged_node = hiera('swift::converged_node')
 
   package { 'swift-object':
     ensure => present,
@@ -45,7 +47,9 @@ class swift::object($workers=2, $rsync_timeout=3600,
                    File['/etc/swift/swift.conf']],
   }
 
-  swift::ringcopy { ['object']: }
+  if $converged_node == false {
+    swift::ringcopy { ['object']: }
+  }
 
   nagios::service {
     'http_swift-object_6000':
