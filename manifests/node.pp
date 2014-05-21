@@ -1,5 +1,7 @@
 class swift::node($rsync_connections=2) inherits swift {
 
+  $multi_daemon_config = hiera('swift::multi_daemon_config')
+
   file { '/etc/rsyncd.conf':
     ensure  => present,
     content => template("swift/${::openstack_version}/rsync.conf.erb"),
@@ -51,12 +53,27 @@ class swift::node($rsync_connections=2) inherits swift {
     require => File['/etc/swift/drive-audit.conf'],
   }
 
-  cron { 'swift-recon':
-    ensure  => present,
-    command => '/usr/bin/swift-recon-cron /etc/swift/object-server.conf',
-    user    => 'swift',
-    minute  => 5,
-    require => File['/etc/swift/object-server.conf'],
+  if $multi_daemon_config == 'false' {
+
+    cron { 'swift-recon':
+      ensure  => present,
+      command => '/usr/bin/swift-recon-cron /etc/swift/object-server.conf',
+      user    => 'swift',
+      minute  => 5,
+      require => File['/etc/swift/object-server.conf'],
+    }
+
+
+  } else {
+
+    cron { 'swift-recon':
+      ensure  => present,
+      command => '/usr/bin/swift-recon-cron /etc/swift/object-server/1.conf',
+      user    => 'swift',
+      minute  => 5,
+      require => File['/etc/swift/object-server/1.conf'],
+    }
+
   }
 
   file { '/etc/sysctl.d/60-swift.conf':
@@ -77,6 +94,15 @@ class swift::node($rsync_connections=2) inherits swift {
     proto  => 'tcp',
     dport  => [873, 6000, 6001, 6002],
     action => accept,
+  }
+
+  if $multi_daemon_config == true {
+    $rep_hosts = hiera('firewall::swift_rep_hosts', [])
+    firewall::multisource {[ prefix($rep_hosts, '101 swift-node-rep,') ]:
+      proto  => 'tcp',
+      dport  => [873, 6010, 6011, 6012],
+      action => accept,
+    }
   }
 
   include swift::object
