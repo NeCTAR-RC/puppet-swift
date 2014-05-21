@@ -13,10 +13,20 @@ class swift::proxy($listen='0.0.0.0',
   $keystone_host = hiera('keystone::host')
   $keystone_protocol = hiera('keystone::protocol')
   $keystone_service_tenant = hiera('keystone::service_tenant')
+
   $total_procs = 1 + $workers
 
-  package { 'swift-proxy':
-    ensure  => present,
+  if $enable_ceilometer == false {
+    package { 'swift-proxy':
+      ensure  => present,
+    }
+  } else {
+    realize Package['ceilometer-common']
+
+    package { 'swift-proxy':
+      ensure  => present,
+      require => Package['ceilometer-common'],
+    }
   }
 
   package { 'swift-plugin-s3':
