@@ -146,6 +146,13 @@ class swift::account($workers=2) inherits swift {
       check_command => 'check_swift_internal!6002';
   }
 
+  if $multi_daemon_config == true {
+    nagios::service {
+      'http_swift-account_6012':
+        check_command => 'check_swift_internal!6012';
+    }
+  }
+
   nagios::nrpe::service {
     'service_swift-account-server':
       check_command => "/usr/lib/nagios/plugins/check_procs -c ${total_procs}:${total_procs} -u swift -a /usr/bin/swift-account-server";
