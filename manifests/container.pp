@@ -155,6 +155,13 @@ class swift::container($workers=2) inherits swift {
       check_command => 'check_swift_internal!6001';
   }
 
+  if $multi_daemon_config == true {
+    nagios::service {
+      'http_swift-container_6011':
+        check_command => 'check_swift_internal!6011';
+    }
+  }
+
   nagios::nrpe::service {
     'service_swift-container-server':
       check_command => "/usr/lib/nagios/plugins/check_procs -c ${total_procs}:${total_procs} -u swift -a /usr/bin/swift-container-server";

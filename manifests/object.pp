@@ -170,6 +170,13 @@ class swift::object($workers=2, $rsync_timeout=3600,
       check_command => 'check_swift_internal!6000';
   }
 
+  if $multi_daemon_config == true {
+    nagios::service {
+      'http_swift-object_6010':
+        check_command => 'check_swift_internal!6010';
+    }
+  }
+
   nagios::nrpe::service {
     'service_swift-object-server':
       check_command => "/usr/lib/nagios/plugins/check_procs -c ${total_procs}:${total_procs} -u swift -a /usr/bin/swift-object-server";
