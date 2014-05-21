@@ -47,6 +47,9 @@ class swift::proxy($listen='0.0.0.0',
     ensure    => running,
     enable    => true,
     subscribe => File['/etc/swift/swift.conf'],
+    require   => [ swift::ringcopy['account'],
+                   swift::ringcopy['object'],
+                   swift::ringcopy['container']],
   }
 
   swift::ringcopy { ['account', 'object', 'container']: }
