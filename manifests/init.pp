@@ -10,7 +10,8 @@ class swift($swift_hash) {
     ensure  => directory,
     owner   => swift,
     group   => swift,
-    mode    => '0770'
+    mode    => '0770',
+    require => Package['swift'],
   }
 
   file { '/etc/swift/swift.conf':
@@ -19,6 +20,7 @@ class swift($swift_hash) {
     group   => swift,
     mode    => '0640',
     content => template("swift/${openstack_version}/swift.conf.erb"),
+    require => File['/etc/swift'],
   }
 
 }
