@@ -34,6 +34,24 @@
       "revId": "839180890d2ad477bb2ed149be923018f85da6d4",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAT3//9d0\u003d",
+        "filename": "manifests/container.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2014-05-22T06:24:16Z",
+      "side": 1,
+      "message": "It\u0027s common to a few classes so it makes sense to have it at swift::. Definitely needs a default though, will break other nodes otherwise",
+      "parentUuid": "AAAAT3//9d8\u003d",
+      "revId": "839180890d2ad477bb2ed149be923018f85da6d4",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
