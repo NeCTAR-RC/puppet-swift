@@ -2,7 +2,7 @@ class swift::node($rsync_connections=2) inherits swift {
 
   file { '/etc/rsyncd.conf':
     ensure  => present,
-    content => template("swift/${::openstack_version}/rsync.conf.erb"),
+    content => template("swift/${openstack_version}/rsync.conf.erb"),
   }
 
   file { '/etc/default/rsync':
