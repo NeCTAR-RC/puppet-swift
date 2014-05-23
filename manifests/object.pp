@@ -4,7 +4,6 @@ class swift::object($workers=2, $rsync_timeout=3600,
 {
 
   $total_procs = 1 + $workers
-  $multi_daemon_config = hiera('swift::multi_daemon_config')
 
   package { 'swift-object':
     ensure => present,

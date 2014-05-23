@@ -1,7 +1,6 @@
 class swift::container($workers=2) inherits swift {
 
   $total_procs = 1 + $workers
-  $multi_daemon_config = hiera('swift::multi_daemon_config')
 
   package { 'swift-container':
     ensure => present,

@@ -1,7 +1,5 @@
 class swift::node($rsync_connections=2) inherits swift {
 
-  $multi_daemon_config = hiera('swift::multi_daemon_config')
-
   file { '/etc/rsyncd.conf':
     ensure  => present,
     content => template("swift/${openstack_version}/rsync.conf.erb"),
@@ -53,7 +51,7 @@ class swift::node($rsync_connections=2) inherits swift {
     require => File['/etc/swift/drive-audit.conf'],
   }
 
-  if $multi_daemon_config == 'false' {
+  if $multi_daemon_config == false {
 
     cron { 'swift-recon':
       ensure  => present,
