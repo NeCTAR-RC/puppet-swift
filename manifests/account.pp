@@ -37,7 +37,7 @@ class swift::account($workers=2) inherits swift {
 
   if $converged_node == false {
     swift::ringcopy { 'account':
-      cluster_name => $cluster_name,
+      cluster_name => "$cluster_name",
     }
   }
 
