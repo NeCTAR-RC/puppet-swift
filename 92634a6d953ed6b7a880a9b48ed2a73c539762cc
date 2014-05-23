@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAT3//9ZM\u003d",
+        "filename": "manifests/ringcopy.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2014-05-23T01:42:47Z",
+      "side": 1,
+      "message": "If we default this to an empty string would that give us backwards compatibility?",
+      "revId": "92634a6d953ed6b7a880a9b48ed2a73c539762cc",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
