@@ -1,4 +1,4 @@
-define swift::ringcopy($cluster_name='') {
+define swift::ringcopy() {
 
   file { "/etc/swift/${name}.ring.gz":
     ensure => file,

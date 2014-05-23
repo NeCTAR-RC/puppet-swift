@@ -46,7 +46,9 @@ class swift::object($workers=2, $rsync_timeout=3600,
   }
 
   if $converged_node == false {
-    swift::ringcopy { ['object']: }
+    swift::ringcopy { 'object':
+      cluster_name => $cluster_name,
+    }
   }
 
   nagios::service {

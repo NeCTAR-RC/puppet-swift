@@ -43,7 +43,9 @@ class swift::container($workers=2) inherits swift {
   }
 
   if $converged_node == false {
-    swift::ringcopy { ['container']: }
+    swift::ringcopy { 'container':
+      cluster_name => $cluster_name,
+    }
   }
 
   nagios::service {

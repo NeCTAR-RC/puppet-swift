@@ -1,4 +1,4 @@
-class swift($swift_hash, $converged_node=false) {
+class swift($swift_hash, $converged_node=false, $cluster_name='') {
 
   $openstack_version = hiera('openstack_version')
 

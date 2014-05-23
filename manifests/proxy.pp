@@ -52,7 +52,9 @@ class swift::proxy($listen='0.0.0.0',
                    swift::ringcopy['container']],
   }
 
-  swift::ringcopy { ['account', 'object', 'container']: }
+  swift::ringcopy { ['account', 'object', 'container']:
+    cluster_name => $cluster_name,
+  }
 
   firewall { '100 swift-proxy':
     dport   => 8888,
