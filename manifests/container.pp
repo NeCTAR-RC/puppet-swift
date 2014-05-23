@@ -12,8 +12,7 @@ class swift::container($workers=2) inherits swift {
       ensure  => present,
       owner   => swift,
       group   => swift,
-      require => [ Package['swift-container'],
-                   File['/etc/swift/container-server']],
+      require => Package['swift-container'],
       content => template("swift/${openstack_version}/container-server.conf.erb"),
     }
 

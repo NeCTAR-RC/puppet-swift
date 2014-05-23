@@ -12,23 +12,10 @@ class swift::object($workers=2, $rsync_timeout=3600,
   if $multi_daemon_config == false {
 
     file { '/etc/swift/object-server.conf':
-      ensure  => absent,
-      require => Package['swift-object'],
-    }
-
-    file { '/etc/swift/object-server':
-      ensure => directory,
-      owner  => swift,
-      group  => swift,
-      require => Package['swift-object'],
-    }
-
-    file { '/etc/swift/object-server.conf':
       ensure  => present,
       owner   => swift,
       group   => swift,
-      require => [ Package['swift-object'],
-                   File['/etc/swift/object-server']],
+      require => Package['swift-object'],
       content => template("swift/${openstack_version}/object-server.conf.erb"),
     }
 
