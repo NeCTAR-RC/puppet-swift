@@ -1,12 +1,12 @@
 class swift::container($workers=2) inherits swift {
 
-  $total_procs = 1 + $workers
-
   package { 'swift-container':
     ensure => present,
   }
 
   if $multi_daemon_config == false {
+
+    $total_procs = 1 + $workers
 
     file { '/etc/swift/container-server.conf':
       ensure  => present,
@@ -45,6 +45,8 @@ class swift::container($workers=2) inherits swift {
     }
 
   } else {
+
+    $total_procs = (1 + $workers) * 2
 
     $ipaddress_regnet = hiera('swift::ipaddress_regnet')
     $ipaddress_repnet = hiera('swift::ipaddress_repnet')

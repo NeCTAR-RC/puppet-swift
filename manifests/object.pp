@@ -3,13 +3,14 @@ class swift::object($workers=2, $rsync_timeout=3600,
                     $lockup_timeout=undef) inherits swift
 {
 
-  $total_procs = 1 + $workers
-
   package { 'swift-object':
     ensure => present,
   }
 
   if $multi_daemon_config == false {
+
+    $total_procs = 1 + $workers
+    $object_auditor_procs = $workers
 
     file { '/etc/swift/object-server.conf':
       ensure  => present,
@@ -48,6 +49,9 @@ class swift::object($workers=2, $rsync_timeout=3600,
     }
 
   } else {
+
+    $total_procs = (1 + $workers) * 2
+    $object_auditor_procs = 1 + $workers
 
     $ipaddress_regnet = hiera('swift::ipaddress_regnet')
     $ipaddress_repnet = hiera('swift::ipaddress_repnet')
@@ -171,7 +175,7 @@ class swift::object($workers=2, $rsync_timeout=3600,
     'service_swift-object-replicator':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-object-replicator";
     'service_swift-object-auditor':
-      check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-object-auditor";
+      check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${object_auditor_procs} -u swift -a /usr/bin/swift-object-auditor";
   }
 
 }
