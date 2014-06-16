@@ -27,6 +27,12 @@ class swift::proxy($listen='0.0.0.0',
       ensure  => present,
       require => Package['ceilometer-common'],
     }
+
+    file { '/var/log/ceilometer/swift-proxy-server.log':
+      owner => 'swift',
+      group => 'swift',
+      mode  => '0660',
+    }
   }
 
   package { 'swift-plugin-s3':
