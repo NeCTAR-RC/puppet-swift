@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAT3//85s\u003d",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2014-06-17T05:54:01Z",
+      "side": 1,
+      "message": "the commit message is about changing permissions of a directory.  but this is  changing permissions of a file",
+      "revId": "4480474e29eb6b9c8d984445cbdc5011cb7d7311",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
