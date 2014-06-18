@@ -1,4 +1,4 @@
-class swift::node($rsync_connections=2) inherits swift {
+class swift::node($rsync_connections=2, $max_connections=262144) inherits swift {
 
   file { '/etc/rsyncd.conf':
     ensure  => present,
@@ -75,16 +75,16 @@ class swift::node($rsync_connections=2) inherits swift {
   }
 
   file { '/etc/sysctl.d/60-swift.conf':
-    owner  => root,
-    group  => root,
-    mode   => '0644',
-    source => 'puppet:///modules/swift/60-swift-sysctl.conf',
-    notify => Exec[sysctl-swift],
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    content => template('swift/60-swift-sysctl.conf.erb'),
+    notify  => Exec['sysctl-swift'],
   }
 
   exec { 'sysctl-swift':
     command => '/sbin/sysctl -p /etc/sysctl.d/60-swift.conf',
-    unless  => '/usr/bin/test `sysctl -e -n net.nf_conntrack_max` -eq 262144',
+    unless  => "/usr/bin/test `sysctl -e -n net.nf_conntrack_max` -eq $max_connections",
   }
 
   $stg_hosts = hiera('firewall::swift_storage_hosts', [])
