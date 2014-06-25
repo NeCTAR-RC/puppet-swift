@@ -6,9 +6,9 @@ workers = <%= @workers %>
 
 [pipeline:main]
 <% if @enable_ceilometer -%>
-pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone account-quotas container-quotas ceilometer proxy-server
+pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas container-quotas ceilometer proxy-server
 <% else -%>
-pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone account-quotas container-quotas proxy-server
+pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas container-quotas proxy-server
 <% end -%>
 
 [app:proxy-server]
@@ -85,6 +85,9 @@ use = egg:swift#formpost
 use = egg:swift#bulk
 max_containers_per_extraction = 10000
 max_failed_files = 1000
+
+[filter:staticweb]
+use = egg:swift#staticweb
 
 <% if @enable_ceilometer -%>
 [filter:ceilometer]
