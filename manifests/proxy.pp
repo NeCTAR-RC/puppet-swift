@@ -16,15 +16,12 @@ class swift::proxy($listen='0.0.0.0',
 
   $total_procs = 1 + $workers
 
-  if $enable_ceilometer == false {
-    package { 'swift-proxy':
-      ensure  => present,
-    }
-  } else {
-    realize Package['ceilometer-common']
+  package { 'swift-proxy':
+    ensure  => present,
+  }
 
-    package { 'swift-proxy':
-      ensure  => present,
+  if $swift::enable_ceilometer {
+    Package['swift-proxy'] {
       require => Package['ceilometer-common'],
     }
 
