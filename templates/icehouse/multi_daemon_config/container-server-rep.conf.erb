@@ -2,6 +2,9 @@
 bind_ip = <%= @ipaddress_repnet %>
 bind_port = <%= @container_rep_port %>
 workers = <%= @workers %>
+<%- if @allow_versions -%>
+allow_versions = true
+<%- end -%>
 
 [pipeline:main]
 pipeline = container-server

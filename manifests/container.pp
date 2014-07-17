@@ -1,4 +1,4 @@
-class swift::container($workers=2) inherits swift {
+class swift::container($workers=2, $allow_versions=false) inherits swift {
 
   package { 'swift-container':
     ensure => present,
