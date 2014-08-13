@@ -9,6 +9,7 @@ pipeline = recon container-server
 
 [app:container-server]
 use = egg:swift#container
+allow_version = <%= scope.function_hiera(['swift::container::version']) %>
 
 [container-replicator]
 
