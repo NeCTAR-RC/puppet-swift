@@ -36,8 +36,6 @@ class swift::proxy($listen='0.0.0.0',
     ensure => installed,
   }
 
-  realize Package['python-keystone']
-
   file { '/etc/swift/proxy-server.conf':
     ensure  => file,
     owner   => swift,
