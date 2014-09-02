@@ -1,4 +1,4 @@
-class swift::account($workers=2, $account_autocreate=true) inherits swift {
+class swift::account($workers=2) inherits swift {
 
   package { 'swift-account':
     ensure => present,

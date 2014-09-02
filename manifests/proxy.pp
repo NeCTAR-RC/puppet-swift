@@ -7,6 +7,7 @@ class swift::proxy($listen='0.0.0.0',
                    $read_affinity=false,
                    $write_affinity=false,
                    $write_affinity_node_count=1,
+                   $account_autocreate=true,
                    $memcache_servers) inherits swift
 {
 
