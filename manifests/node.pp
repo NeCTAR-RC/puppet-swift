@@ -32,12 +32,13 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
     ensure => installed,
   }
 
-  file {'/var/cache/swift':
-    owner => swift,
-    group => swift,
+  file { '/var/cache/swift':
+    owner   => swift,
+    group   => swift,
+    recurse => true,
   }
 
-  file {'/etc/swift/drive-audit.conf':
+  file { '/etc/swift/drive-audit.conf':
     owner   => swift,
     group   => swift,
     content => template('swift/drive-audit.conf.erb')
