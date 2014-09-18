@@ -36,6 +36,7 @@ usage ()
     echo " -U <username>    Username to use to get an auth token"
     echo " -P <password>    Password to use to get an auth token"
     echo " -T <tenant-name> Tenant to use to get an auth token"
+    echo " -R <region>      Swift region to check"
     echo " -c <container>   Container to upload to"
     echo " -s <maxsize>     Determine maximum file size in KB"
     echo "                  (default: 1024)"
@@ -85,7 +86,14 @@ then
     exit $STATE_UNKNOWN
 fi
 
-swift_cmd="swift --os-region-name=${region} --os-username=${username} --os-password=${password} --os-tenant-name=${tenant} --os-auth-url=${auth_url}"
+args="--os-username=${username} --os-password=${password} --os-tenant-name=${tenant} --os-auth-url=${auth_url}"
+
+if [ "${region}" != "" ]
+then
+    args="--os-region-name=${region} ${args}"
+fi
+
+swift_cmd="swift ${args}"
 
 delete_files ()
 {
