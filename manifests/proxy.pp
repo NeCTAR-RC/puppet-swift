@@ -122,10 +122,10 @@ class swift::proxy($listen='0.0.0.0',
   $nagios_keystone_tenant = hiera('nagios::keystone_tenant')
   $nagios_image_count = hiera('nagios::image_count')
   $nagios_image = hiera('nagios::image')
+  $nagios_swift_region = hiera('nagios::swift_region', '')
 
-  nagios::service {
-    'check_swift':
-      check_command => "check_swift_operations!${keystone_protocol}://${keystone_host}:5000/v2.0/!${nagios_keystone_user}!${nagios_keystone_pass}!${nagios_keystone_tenant}";
+  nagios::service { 'check_swift':
+    check_command => "check_swift_operations!${keystone_protocol}://${keystone_host}:5000/v2.0/!${nagios_keystone_user}!${nagios_keystone_pass}!${nagios_keystone_tenant}!${nagios_swift_region}";
   }
 }
 
@@ -139,7 +139,7 @@ class swift::proxy::nagios-checks {
     'check_swift_internal':
       check_command => '/usr/lib/nagios/plugins/check_http -p \'$ARG1$\' -e 400 -H \'$HOSTADDRESS$\' -I \'$HOSTADDRESS$\'';
     'check_swift_operations':
-      check_command => '/usr/local/lib/nagios/plugins/check_swift -A \'$ARG1$\' -U \'$ARG2$\' -P \'$ARG3$\' -T \'$ARG4$\' -c nagios';
+      check_command => '/usr/local/lib/nagios/plugins/check_swift -A \'$ARG1$\' -U \'$ARG2$\' -P \'$ARG3$\' -T \'$ARG4$\' -R \'$ARG5$\' -c nagios';
   }
 
   file { '/usr/local/lib/nagios/plugins/check_swift':
