@@ -22,6 +22,24 @@
       "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7af0899e_5749868a",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2014-09-19T05:41:48Z",
+      "side": 1,
+      "message": "It\u0027s not mandatory? see the next lines",
+      "parentUuid": "7af0899e_d7a61653",
+      "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
