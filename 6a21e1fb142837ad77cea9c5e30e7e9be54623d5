@@ -40,6 +40,24 @@
       "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7af0899e_171d3e74",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2014-09-22T02:23:10Z",
+      "side": 1,
+      "message": "Puppet will vomit if nagios::swift_region isn\u0027t defined in hiera because the hiera call doesn\u0027t have a default.\n\n    $nagios_swift_region \u003d hiera(\u0027nagios::swift_region\u0027, \u0027\u0027)",
+      "parentUuid": "7af0899e_5749868a",
+      "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
