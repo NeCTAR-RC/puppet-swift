@@ -58,6 +58,24 @@
       "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7af0899e_42ff0202",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2014-09-22T03:28:08Z",
+      "side": 1,
+      "message": "I tested it without the variable defined in hiera and it worked correctly (still is working for the Melbourne region). Puppet did not error.",
+      "parentUuid": "7af0899e_171d3e74",
+      "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
