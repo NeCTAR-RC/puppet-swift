@@ -76,6 +76,24 @@
       "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7af0899e_8209ea2e",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2014-09-22T03:52:42Z",
+      "side": 1,
+      "message": "This at least used to be the behaviour so either this has changed (i can\u0027t find docs about it) or could be a bug in hiera/puppet. I think it\u0027s safest to specify a default explicitly",
+      "parentUuid": "7af0899e_42ff0202",
+      "revId": "6a21e1fb142837ad77cea9c5e30e7e9be54623d5",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
