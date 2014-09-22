@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7af0899e_82f3aa09",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2014-09-22T07:17:01Z",
+      "side": 1,
+      "message": "You should be able to get rid of this special casing (and roll the check_swift_region_operations into the existing check) since an empty value for region is handled by the check script. But up to you, I\u0027m +1 anyway.",
+      "range": {
+        "startLine": 127,
+        "startChar": 6,
+        "endLine": 127,
+        "endChar": 25
+      },
+      "revId": "b6e368b0f83daaacd04fcb5b9c3855f95a8a001c",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
