@@ -1,0 +1,13 @@
+[DEFAULT]
+bind_ip = <%= @ipaddress_repnet %>
+bind_port = <%= @account_rep_port %>
+workers = <%= @workers %>
+
+[pipeline:main]
+pipeline = account-server
+
+[app:account-server]
+use = egg:swift#account
+replication_server = True
+
+[account-replicator]
