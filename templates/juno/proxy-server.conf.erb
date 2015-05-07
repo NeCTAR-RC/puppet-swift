@@ -33,7 +33,7 @@ is_admin = true
 cache = swift.cache
 
 [filter:authtoken]
-paste.filter_factory = keystoneclient.middleware.auth_token:filter_factory
+paste.filter_factory = keystonemiddleware.auth_token:filter_factory
 # Delaying the auth decision is required to support token-less
 # usage for anonymous referrers ('.r:*').
 delay_auth_decision = 1
@@ -48,7 +48,7 @@ cache = swift.cache
 include_service_catalog = False
 
 [filter:s3token]
-paste.filter_factory = keystone.middleware.s3_token:filter_factory
+paste.filter_factory = keystonemiddleware.s3_token:filter_factory
 auth_port = 35357
 auth_host = <%= @keystone_host %>
 auth_protocol = <%= @keystone_protocol %>

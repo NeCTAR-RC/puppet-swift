@@ -33,11 +33,9 @@ class swift::proxy($listen='0.0.0.0',
     }
   }
 
-  package { 'swift-plugin-s3':
+  package { ['python-keystonemiddleware', 'swift-plugin-s3']:
     ensure => installed,
   }
-
-  realize Package['python-keystone']
 
   file { '/etc/swift/proxy-server.conf':
     ensure  => file,
