@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba1f61a0_dc8c6d82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2015-06-03T07:37:21Z",
+      "side": 1,
+      "message": "maybe a clearer commit message?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "4483ff326b3ce1c16dcdea6778030b78cba40f27",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba1f61a0_9c92f59d",
+        "filename": "templates/juno/.object-server.conf.erb.swp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2015-06-03T07:37:21Z",
+      "side": 1,
+      "message": "might not want to check this in",
+      "revId": "4483ff326b3ce1c16dcdea6778030b78cba40f27",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
