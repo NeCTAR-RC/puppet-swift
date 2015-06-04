@@ -1,6 +1,6 @@
 class swift::object($workers=2, $rsync_timeout=3600,
                     $rsync_io_timeout=undef,
-                    $lockup_timeout=undef) inherits swift
+                    $lockup_timeout=undef,$rsync_rsync_bwlimit=1000000) inherits swift
 {
 
   package { 'swift-object':
