@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba1f61a0_3c05c9c2",
+        "filename": "manifests/object.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-06-04T02:49:57Z",
+      "side": 1,
+      "message": "Not sure why these are here and also at the bottom. \n\nAll you need to do is add a new argument to the class called rsync_bwlimit no need for hiera imports at all.\nThen the variable can be difined in hiera at swift::object::rsync_bwlimit.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "407fee57b26bdfbeca7b76e328c703dc834fea30",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
