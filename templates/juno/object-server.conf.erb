@@ -19,6 +19,9 @@ rsync_io_timeout = <%= @rsync_io_timeout %>
 <% if @lockup_timeout -%>
 lockup_timeout = <%= @lockup_timeout %>
 <% end -%>
+<% if @rsync_bwlimit -%>
+rsync_bwlimit = <%= @rsync_bwlimit %>
+<% end -%>
 
 [object-updater]
 
