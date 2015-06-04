@@ -1,7 +1,12 @@
-class swift::object($workers=2, $rsync_timeout=3600,
-                    $rsync_io_timeout=undef,
-                    $lockup_timeout=undef) inherits swift
-{
+# Install and config swift object components
+
+class swift::object(
+  $workers=2,
+  $rsync_timeout=3600,
+  $rsync_io_timeout=undef,
+  $lockup_timeout=undef,
+  $rsync_bwlimit=undef
+  ) inherits swift {
 
   package { 'swift-object':
     ensure => present,
