@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba1f61a0_dced8df1",
+        "filename": "manifests/object.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-06-04T10:25:08Z",
+      "side": 1,
+      "message": "Maybe the default should be undef for backwards compatibility",
+      "range": {
+        "startLine": 3,
+        "startChar": 63,
+        "endLine": 3,
+        "endChar": 70
+      },
+      "revId": "c2d9c25968179330312a86737a02137584c2f004",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba1f61a0_fcf051cb",
+        "filename": "manifests/object.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-06-04T10:25:08Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 3,
+        "startChar": 43,
+        "endLine": 3,
+        "endChar": 54
+      },
+      "revId": "c2d9c25968179330312a86737a02137584c2f004",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
