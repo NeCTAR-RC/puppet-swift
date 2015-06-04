@@ -12,6 +12,11 @@ class swift::object($workers=2, $rsync_timeout=3600,
     $total_procs = 1 + $workers
     $object_auditor_procs = $workers
 
+    $rsync_timeout = hiera('swift::rsync_timeout')
+    $rsync_io_timeout = hiera('swift::rsync_io_timeout')
+    $lockup_timeout = hiera('lockup_timeout')
+    $rsync_bwlimit = hiera('rsync_bwlimit')
+
     file { '/etc/swift/object-server.conf':
       ensure  => present,
       owner   => swift,
@@ -52,6 +57,11 @@ class swift::object($workers=2, $rsync_timeout=3600,
 
     $total_procs = (1 + $workers) * 2
     $object_auditor_procs = 1 + $workers
+
+    $rsync_timeout = hiera('swift::rsync_timeout')
+    $rsync_io_timeout = hiera('swift::rsync_io_timeout')
+    $lockup_timeout = hiera('lockup_timeout')
+    $rsync_bwlimit = hiera('rsync_bwlimit')
 
     $ipaddress_regnet = hiera('swift::ipaddress_regnet')
     $ipaddress_repnet = hiera('swift::ipaddress_repnet')
