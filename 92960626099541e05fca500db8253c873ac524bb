@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba1f61a0_1ce285d5",
+        "filename": "manifests/object.pp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000088
+      },
+      "writtenOn": "2015-06-05T01:48:38Z",
+      "side": 1,
+      "message": "This should be on a new line for readability",
+      "revId": "92960626099541e05fca500db8253c873ac524bb",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
