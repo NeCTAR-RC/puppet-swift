@@ -16,6 +16,24 @@
       "revId": "92960626099541e05fca500db8253c873ac524bb",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba1f61a0_dcd74dec",
+        "filename": "manifests/object.pp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000123
+      },
+      "writtenOn": "2015-06-05T02:11:19Z",
+      "side": 1,
+      "message": "Is it better to put each parameter on its own line? like this:\n\nclass swift::object(\n  $workers\u003d2,\n  $rsync_timeout\u003d3600,\n  $rsync_io_timeout\u003dundef,\n  $lockup_timeout\u003dundef,\n  $rsync_bwlimit\u003dundef\n  ) inherits swift\n{\n...\n}",
+      "parentUuid": "ba1f61a0_1ce285d5",
+      "revId": "92960626099541e05fca500db8253c873ac524bb",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
     }
   ]
 }
