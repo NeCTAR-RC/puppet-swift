@@ -35,6 +35,7 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
   file { '/var/cache/swift':
     owner   => swift,
     group   => swift,
+    mode    => '0600',
     recurse => true,
   }
 
