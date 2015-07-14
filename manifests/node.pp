@@ -90,7 +90,7 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
   }
 
   $stg_hosts = hiera('firewall::swift_storage_hosts', [])
-  firewall::multisource {[ prefix($stg_hosts, '100 swift-node,') ]:
+  nectar::firewall::multisource {[ prefix($stg_hosts, '100 swift-node,') ]:
     proto  => 'tcp',
     dport  => [873, 6000, 6001, 6002],
     action => accept,
@@ -98,7 +98,7 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
 
   if $multi_daemon_config == true {
     $rep_hosts = hiera('firewall::swift_rep_hosts', [])
-    firewall::multisource {[ prefix($rep_hosts, '101 swift-node-rep,') ]:
+    nectar::firewall::multisource {[ prefix($rep_hosts, '101 swift-node-rep,') ]:
       proto  => 'tcp',
       dport  => [873, 6010, 6011, 6012],
       action => accept,
