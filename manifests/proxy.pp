@@ -59,13 +59,6 @@ class swift::proxy($listen='0.0.0.0',
     ensure    => running,
     enable    => true,
     subscribe => File['/etc/swift/swift.conf'],
-    require   => [ Swift::Ringcopy['account'],
-                   Swift::Ringcopy['object'],
-                   Swift::Ringcopy['container']],
-  }
-
-  swift::ringcopy { ['account', 'object', 'container']:
-    cluster_name => "$cluster_name",
   }
 
   firewall { '100 swift-proxy':

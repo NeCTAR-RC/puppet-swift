@@ -144,12 +144,6 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
 
   }
 
-  if $converged_node == false {
-    swift::ringcopy { 'container':
-      cluster_name => "$cluster_name",
-    }
-  }
-
   nagios::service {
     'http_swift-container_6001':
       check_command => 'check_swift_internal!6001';

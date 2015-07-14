@@ -154,12 +154,6 @@ class swift::object(
 
   }
 
-  if $converged_node == false {
-    swift::ringcopy { 'object':
-      cluster_name => "$cluster_name",
-    }
-  }
-
   nagios::service {
     'http_swift-object_6000':
       check_command => 'check_swift_internal!6000';
