@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a245df4_53b6a7dd",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-07-14T01:06:52Z",
+      "side": 1,
+      "message": "think this should be $swift::openstack_verison ?",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "f322d6addb3cba07d9298d70c98bcead15af0d19",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
