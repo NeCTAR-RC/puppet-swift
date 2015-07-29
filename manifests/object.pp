@@ -15,7 +15,7 @@ class swift::object(
   if $multi_daemon_config == false {
 
     $total_procs = 1 + $workers
-    $object_auditor_procs = $workers
+    $object_auditor_procs = 1 + $workers
 
     file { '/etc/swift/object-server.conf':
       ensure  => present,
