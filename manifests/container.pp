@@ -144,15 +144,20 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
 
   }
 
-  nagios::service {
-    'http_swift-container_6001':
-      check_command => 'check_swift_internal!6001';
-  }
-
-  if $multi_daemon_config == true {
+  if $multi_daemon_config == false {
     nagios::service {
-      'http_swift-container_6011':
-        check_command => 'check_swift_internal!6011';
+      'http_swift-container_6001':
+        check_command => 'check_swift_internal!6001';
+    }
+  }
+  else {
+    nagios::service {
+      'http_swift-container_6001':
+        check_command => "check_swift_internal!$ipaddress_regnet!6001";
+    }
+    nagios::service {
+      "http_swift-container_${container_rep_port}":
+        check_command => "check_swift_internal_ip!$ipaddress_repnet!${container_rep_port}";
     }
   }
 
