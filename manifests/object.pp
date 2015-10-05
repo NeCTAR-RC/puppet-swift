@@ -12,7 +12,7 @@ class swift::object(
     ensure => present,
   }
 
-  if $multi_daemon_config == false {
+  if $swift::multi_daemon_config == false {
 
     $total_procs = 1 + $workers
     $object_auditor_procs = 1 + $workers
@@ -154,15 +154,20 @@ class swift::object(
 
   }
 
-  nagios::service {
-    'http_swift-object_6000':
-      check_command => 'check_swift_internal!6000';
-  }
-
-  if $multi_daemon_config == true {
+  if $swift::multi_daemon_config == false {
     nagios::service {
-      'http_swift-object_6010':
-        check_command => 'check_swift_internal!6010';
+      'http_swift-object_6000':
+        check_command => 'check_swift_internal!6000';
+    }
+  }
+  else {
+    nagios::service {
+      'http_swift-container_6000':
+        check_command => "check_swift_internal_ip!6000!${ipaddress_regnet}";
+    }
+    nagios::service {
+      "http_swift-container_${object_rep_port}":
+        check_command => "check_swift_internal_ip!${object_rep_port}!${ipaddress_repnet}";
     }
   }
 

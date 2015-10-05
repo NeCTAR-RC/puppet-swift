@@ -4,7 +4,7 @@ class swift::account($workers=2) inherits swift {
     ensure => present,
   }
 
-  if $multi_daemon_config == false {
+  if $swift::multi_daemon_config == false {
 
     $total_procs = 1 + $workers
 
@@ -137,15 +137,20 @@ class swift::account($workers=2) inherits swift {
 
   }
 
-  nagios::service {
-    'http_swift-account_6002':
-      check_command => 'check_swift_internal!6002';
-  }
-
-  if $multi_daemon_config == true {
+  if $swift::multi_daemon_config == false {
     nagios::service {
-      'http_swift-account_6012':
-        check_command => 'check_swift_internal!6012';
+      'http_swift-account_6002':
+        check_command => 'check_swift_internal!6002';
+    }
+  }
+  else {
+    nagios::service {
+      'http_swift-container_6002':
+        check_command => "check_swift_internal_ip!6002!${ipaddress_regnet}";
+    }
+    nagios::service {
+      "http_swift-container_${account_rep_port}":
+        check_command => "check_swift_internal_ip!${account_rep_port}!${ipaddress_repnet}";
     }
   }
 

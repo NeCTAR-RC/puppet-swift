@@ -131,6 +131,8 @@ class swift::proxy::nagios-checks {
       check_command => '/usr/lib/nagios/plugins/check_http -u /healthcheck -p \'$ARG1$\' -H \'$HOSTADDRESS$\' -I \'$HOSTADDRESS$\'';
     'check_swift_internal':
       check_command => '/usr/lib/nagios/plugins/check_http -p \'$ARG1$\' -e 400 -H \'$HOSTADDRESS$\' -I \'$HOSTADDRESS$\'';
+    'check_swift_internal_ip':
+      check_command => '/usr/lib/nagios/plugins/check_http -p \'$ARG1$\' -e 400,405 -H \'$HOSTADDRESS$\' -I \'$ARG2$\'';
     'check_swift_operations':
       check_command => '/usr/local/lib/nagios/plugins/check_swift -A \'$ARG1$\' -U \'$ARG2$\' -P \'$ARG3$\' -T \'$ARG4$\' -R \'$ARG5$\' -c nagios';
   }
