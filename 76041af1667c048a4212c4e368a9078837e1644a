@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a245df4_6a1d810f",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-10-13T22:10:35Z",
+      "side": 1,
+      "message": "Yeah was talking about the arg ordering. This makes it a little confusing. Being consistent trumps looking good usually. All the other commands are like that so don\u0027t see a reason for this one check to be different?",
+      "range": {
+        "startLine": 135,
+        "startChar": 6,
+        "endLine": 135,
+        "endChar": 120
+      },
+      "revId": "76041af1667c048a4212c4e368a9078837e1644a",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
