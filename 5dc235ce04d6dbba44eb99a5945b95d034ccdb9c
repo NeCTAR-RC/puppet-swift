@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a245df4_6f7473cf",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-10-13T02:35:48Z",
+      "side": 1,
+      "message": "How come this is slightly different?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 120
+      },
+      "revId": "5dc235ce04d6dbba44eb99a5945b95d034ccdb9c",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
