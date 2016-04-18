@@ -1,0 +1,17 @@
+[DEFAULT]
+bind_ip = <%= @ipaddress_repnet %>
+bind_port = <%= @container_rep_port %>
+workers = <%= @workers %>
+<%- if @allow_versions -%>
+allow_versions = true
+allow_versioned_writes = true
+<%- end -%>
+
+[pipeline:main]
+pipeline = container-server
+
+[app:container-server]
+use = egg:swift#container
+replication_server = True
+
+[container-replicator]
