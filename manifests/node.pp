@@ -48,7 +48,7 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
   cron { 'drive-audit':
     ensure  => present,
     command => 'swift-drive-audit /etc/swift/drive-audit.conf',
-    user    => 'root',
+    user    => 'swift',
     minute  => 0,
     require => File['/etc/swift/drive-audit.conf'],
   }
