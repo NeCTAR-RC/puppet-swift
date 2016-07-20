@@ -2,7 +2,7 @@
 
 class swift::object(
   $workers=2,
-  $rsync_timeout=900,
+  $rsync_timeout=3600,
   $rsync_io_timeout=undef,
   $lockup_timeout=undef,
   $rsync_bwlimit=undef
