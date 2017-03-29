@@ -121,9 +121,3 @@ class swift::proxy($listen='0.0.0.0',
     check_command => "check_swift_operations!${keystone_protocol}://${keystone_host}:5000/v2.0/!${nagios_keystone_user}!${nagios_keystone_pass}!${nagios_keystone_tenant}!${nagios_swift_region}";
   }
 }
-
-class swift::proxy::nagios-checks {
-    include ::nectar::nagios::swift_proxy
-
-    notify {'class swift::proxy::nagios-checks is deprecated. Please use nectar::nagios::swift_proxy': }
-}
