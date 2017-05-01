@@ -1,0 +1,22 @@
+[DEFAULT]
+bind_ip = 0.0.0.0
+bind_port = 6002
+workers = <%= @workers %>
+set log_level = WARN
+log_level = WARN
+
+[pipeline:main]
+pipeline = recon account-server
+
+[app:account-server]
+use = egg:swift#account
+
+[account-replicator]
+
+[account-auditor]
+
+[account-reaper]
+
+[filter:recon]
+use = egg:swift#recon
+recon_cache_path = /var/cache/swift
