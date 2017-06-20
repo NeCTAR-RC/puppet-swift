@@ -6,9 +6,9 @@ workers = <%= @workers %>
 
 [pipeline:main]
 <% if @enable_ceilometer -%>
-pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas slo dlo container-quotas ceilometer proxy-server versioned_writes
+pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas slo dlo container-quotas ceilometer proxy-logging proxy-server versioned_writes
 <% else -%>
-pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas slo dlo container-quotas proxy-server
+pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas slo dlo container-quotas proxy-logging proxy-server
 <% end -%>
 
 [app:proxy-server]
@@ -74,6 +74,7 @@ use = egg:swift#healthcheck
 
 [filter:proxy-logging]
 use = egg:swift#proxy_logging
+set log_facility = LOG_USER
 
 [filter:swift3]
 use = egg:swift3#swift3
