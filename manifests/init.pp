@@ -5,6 +5,8 @@ class swift($swift_hash,
             $enable_ceilometer=false) {
 
   $openstack_version = hiera('openstack_version')
+  $nagios_warning_threshold = 10800
+  $nagios_critical_threshold = 28800
 
   package { 'swift':
     ensure => installed,
