@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ae5cdf2_d853cc6a",
+        "filename": "manifests/account.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-27T01:26:19Z",
+      "side": 1,
+      "message": "it will need to be called something different as same as above currently. How about service_swift-account_replication",
+      "range": {
+        "startLine": 162,
+        "startChar": 5,
+        "endLine": 162,
+        "endChar": 37
+      },
+      "revId": "7c9da6a879aab91be3f1b30a9e9389216c0ed90b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae5cdf2_58c7bc12",
+        "filename": "manifests/account.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-27T01:26:19Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 163,
+        "startChar": 116,
+        "endLine": 163,
+        "endChar": 144
+      },
+      "revId": "7c9da6a879aab91be3f1b30a9e9389216c0ed90b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae5cdf2_384bd0b1",
+        "filename": "manifests/account.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-27T01:26:19Z",
+      "side": 1,
+      "message": "lets just hard code these, can\u0027t imagine them needing to be different",
+      "range": {
+        "startLine": 163,
+        "startChar": 85,
+        "endLine": 163,
+        "endChar": 112
+      },
+      "revId": "7c9da6a879aab91be3f1b30a9e9389216c0ed90b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae5cdf2_f8508860",
+        "filename": "manifests/container.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-27T01:26:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "7c9da6a879aab91be3f1b30a9e9389216c0ed90b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae5cdf2_184e14c2",
+        "filename": "manifests/object.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-27T01:26:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 181,
+        "startChar": 5,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "7c9da6a879aab91be3f1b30a9e9389216c0ed90b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
