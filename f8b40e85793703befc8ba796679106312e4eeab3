@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ae5cdf2_182ff4a2",
+        "filename": "manifests/init.pp",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000082
+      },
+      "writtenOn": "2017-06-27T03:02:43Z",
+      "side": 1,
+      "message": "can you please add a comment translating these to minutes/hours for debugging readability?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "f8b40e85793703befc8ba796679106312e4eeab3",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
