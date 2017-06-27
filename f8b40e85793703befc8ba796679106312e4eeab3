@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ae5cdf2_3803d010",
+        "filename": "files/check_replication_time",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-27T03:28:48Z",
+      "side": 1,
+      "message": "ideally you should use python natively here, no need to shell out when you can use httplib, won\u0027t hold this up though",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "f8b40e85793703befc8ba796679106312e4eeab3",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae5cdf2_182ff4a2",
         "filename": "manifests/init.pp",
         "patchSetId": 5
