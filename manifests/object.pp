@@ -170,6 +170,8 @@ class swift::object(
         check_command => "check_swift_internal_ip!${object_rep_port}!${ipaddress_repnet}";
     }
   }
+  $nagios_warning_threshold = 10800
+  $nagios_critical_threshold = 28800
 
   nagios::nrpe::service {
     'service_swift-object-server':
@@ -178,6 +180,8 @@ class swift::object(
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-object-updater";
     'service_swift-object-replicator':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-object-replicator";
+    'service_swift-object-replicator':
+      check_command => "/usr/lib/nagios/plugins/check_replication_time -e object -w ${nagios_warning_threshold} -c ${nagios_critical_threshold}";
     'service_swift-object-auditor':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${object_auditor_procs} -u swift -a /usr/bin/swift-object-auditor";
   }

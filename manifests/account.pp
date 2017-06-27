@@ -153,12 +153,16 @@ class swift::account($workers=2) inherits swift {
         check_command => "check_swift_internal_ip!${account_rep_port}!${ipaddress_repnet}";
     }
   }
+  $nagios_warning_threshold = 10800
+  $nagios_critical_threshold = 28800
 
   nagios::nrpe::service {
     'service_swift-account-server':
       check_command => "/usr/lib/nagios/plugins/check_procs -c ${total_procs}:${total_procs} -u swift -a /usr/bin/swift-account-server";
     'service_swift-account-replicator':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-account-replicator";
+    'service_swift-account-replicator':
+      check_command => "/usr/lib/nagios/plugins/check_replication_time -e account -w ${nagios_warning_threshold} -c ${nagios_critical_threshold}";
     'service_swift-account-auditor':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-account-auditor";
   }

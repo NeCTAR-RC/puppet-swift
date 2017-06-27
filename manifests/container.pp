@@ -160,12 +160,16 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
         check_command => "check_swift_internal_ip!${container_rep_port}!${ipaddress_repnet}";
     }
   }
+  $nagios_warning_threshold = 10800
+  $nagios_critical_threshold = 28800
 
   nagios::nrpe::service {
     'service_swift-container-server':
       check_command => "/usr/lib/nagios/plugins/check_procs -c ${total_procs}:${total_procs} -u swift -a /usr/bin/swift-container-server";
     'service_swift-container-replicator':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-container-replicator";
+    'service_swift-container-replicator':
+      check_command => "/usr/lib/nagios/plugins/check_replication_time -e container -w ${nagios_warning_threshold} -c ${nagios_critical_threshold}";
     'service_swift-container-updater':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-container-updater";
   }
