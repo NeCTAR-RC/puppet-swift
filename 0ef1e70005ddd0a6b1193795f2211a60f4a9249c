@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ae5cdf2_935847fc",
+        "filename": "files/check_replication_time",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000077
+      },
+      "writtenOn": "2017-06-27T04:59:23Z",
+      "side": 1,
+      "message": "You should probably run this through flake8. These lines will be too long",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 108
+      },
+      "revId": "0ef1e70005ddd0a6b1193795f2211a60f4a9249c",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae5cdf2_7363bbb1",
+        "filename": "files/check_replication_time",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000077
+      },
+      "writtenOn": "2017-06-27T04:59:23Z",
+      "side": 1,
+      "message": "I\u0027d rather you not shell out to curl here, and use python-requests? Should only take you a couple of lines",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 107
+      },
+      "revId": "0ef1e70005ddd0a6b1193795f2211a60f4a9249c",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
