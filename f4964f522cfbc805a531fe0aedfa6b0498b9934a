@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ae5cdf2_53607f35",
+        "filename": "files/check_replication_time",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000077
+      },
+      "writtenOn": "2017-06-28T04:25:06Z",
+      "side": 1,
+      "message": "Not lined up. You should run this through flake8",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "f4964f522cfbc805a531fe0aedfa6b0498b9934a",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
