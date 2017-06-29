@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ae5cdf2_4e9b76c9",
+        "filename": "files/check_replication_time",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-29T01:55:58Z",
+      "side": 1,
+      "message": "Ideally should be all upper case since its a constant",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "21bd9f62ea1b6e88a1e7813b4974fa5cffb2e87b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae5cdf2_2e5f0a10",
+        "filename": "files/check_replication_time",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2017-06-29T01:55:58Z",
+      "side": 1,
+      "message": "This help text is incorrect, doesn\u0027t have a default. \n\nShould just be something like \"Which swift entity to query\"",
+      "range": {
+        "startLine": 36,
+        "startChar": 26,
+        "endLine": 38,
+        "endChar": 39
+      },
+      "revId": "21bd9f62ea1b6e88a1e7813b4974fa5cffb2e87b",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
