@@ -2,8 +2,7 @@
 bind_ip = 0.0.0.0
 bind_port = 6001
 workers = <%= @workers %>
-set log_level = WARN
-log_level = WARN
+log_facility = LOG_USER
 <%- if @allow_versions -%>
 allow_versions = true
 <%- end -%>
