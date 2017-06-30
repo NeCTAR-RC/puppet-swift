@@ -160,7 +160,7 @@ class swift::account($workers=2) inherits swift {
     'service_swift-account-replicator':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-account-replicator";
     'service_swift-account_replication_time':
-      check_command => "/usr/lib/nagios/plugins/check_replication_time -e account -w ${swift::nagios_warning_threshold} -c ${swift::nagios_critical_threshold}";
+      check_command => "/usr/local/lib/nagios/plugins/check_replication_time -e account -w ${swift::nagios_warning_threshold} -c ${swift::nagios_critical_threshold}";
     'service_swift-account-auditor':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-account-auditor";
   }

@@ -167,7 +167,7 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
     'service_swift-container-replicator':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-container-replicator";
     'service_swift-container_replication_time':
-      check_command => "/usr/lib/nagios/plugins/check_replication_time -e container -w ${swift::nagios_warning_threshold} -c ${swift::nagios_critical_threshold}";
+      check_command => "/usr/local/lib/nagios/plugins/check_replication_time -e container -w ${swift::nagios_warning_threshold} -c ${swift::nagios_critical_threshold}";
     'service_swift-container-updater':
       check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-container-updater";
   }
