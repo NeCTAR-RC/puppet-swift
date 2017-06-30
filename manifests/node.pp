@@ -85,6 +85,14 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
     notify  => Exec['sysctl-swift'],
   }
 
+  file { '/usr/local/lib/nagios/plugins/check_replication_time':
+    ensure => present,
+    owner  => root,
+    group  => root,
+    mode   => '0775',
+    source => 'puppet:///modules/swift/check_replication_time',
+  }
+
   exec { 'sysctl-swift':
     command => '/sbin/sysctl -p /etc/sysctl.d/60-swift.conf',
     unless  => "/usr/bin/test `sysctl -e -n net.nf_conntrack_max` -eq $max_connections",
