@@ -28,7 +28,7 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
     group  => swift,
   }
 
-  package { 'xfsprogs':
+  package { ['xfsprogs', 'python-requests']:
     ensure => installed,
   }
 
