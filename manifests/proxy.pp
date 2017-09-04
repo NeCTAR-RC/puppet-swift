@@ -118,6 +118,6 @@ class swift::proxy($listen='0.0.0.0',
   $nagios_swift_region = hiera('nagios::swift_region', '')
 
   nagios::service { 'check_swift':
-    check_command => "check_swift_operations!${keystone_protocol}://${keystone_host}:5000/v2.0/!${nagios_keystone_user}!${nagios_keystone_pass}!${nagios_keystone_tenant}!${nagios_swift_region}";
+    check_command => "check_swift_operations!${keystone_protocol}://${keystone_host}:5000/v3/!${nagios_keystone_user}!${nagios_keystone_pass}!${nagios_keystone_tenant}!${nagios_swift_region}";
   }
 }
