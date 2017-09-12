@@ -20,6 +20,7 @@ class swift($swift_hash,
 
   package { 'swift':
     ensure => installed,
+    tag    => 'openstack',
   }
 
   file { '/etc/swift':

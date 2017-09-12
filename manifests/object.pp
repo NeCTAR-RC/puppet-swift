@@ -10,6 +10,7 @@ class swift::object(
 
   package { 'swift-object':
     ensure => present,
+    tag    => 'openstack',
   }
 
   if $swift::multi_daemon_config == false {

@@ -2,6 +2,7 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
 
   package { 'swift-container':
     ensure => present,
+    tag    => 'openstack',
   }
 
   if $swift::multi_daemon_config == false {

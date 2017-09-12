@@ -19,6 +19,7 @@ class swift::proxy($listen='0.0.0.0',
 
   package { ['swift-proxy', 'swift-plugin-s3']:
     ensure => present,
+    tag    => 'openstack',
   }
 
   case $swift::openstack_version {

@@ -2,6 +2,7 @@ class swift::account($workers=2) inherits swift {
 
   package { 'swift-account':
     ensure => present,
+    tag    => 'openstack',
   }
 
   if $swift::multi_daemon_config == false {
