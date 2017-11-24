@@ -43,15 +43,6 @@ class swift::proxy($listen='0.0.0.0',
     require => Package['swift-proxy'],
   }
 
-  file { '/etc/swift/memcache.conf':
-    ensure  => file,
-    owner   => swift,
-    group   => swift,
-    content => template("swift/${openstack_version}/memcache.conf.erb"),
-    notify  => Service['swift-proxy'],
-    require => Package['swift-proxy'],
-  }
-
   service { 'swift-proxy':
     ensure    => running,
     enable    => true,
@@ -103,7 +94,6 @@ class swift::proxy($listen='0.0.0.0',
     mode   => '0440',
     source => 'puppet:///modules/swift/sudoers_nagios_swift_object_servers',
   }
-
 
   $nagios_keystone_user = hiera('nagios::keystone_user')
   $nagios_keystone_pass = hiera('nagios::keystone_pass')

@@ -40,4 +40,12 @@ class swift($swift_hash,
     require => File['/etc/swift'],
   }
 
+  file { '/etc/swift/memcache.conf':
+    ensure  => file,
+    owner   => swift,
+    group   => swift,
+    content => template("swift/${openstack_version}/memcache.conf.erb"),
+    notify  => Service['swift-proxy'],
+    require => Package['swift-proxy'],
+  }
 }
