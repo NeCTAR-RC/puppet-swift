@@ -17,14 +17,9 @@ class swift::proxy($listen='0.0.0.0',
 
   $total_procs = 1 + $workers
 
-  package { ['swift-proxy', 'swift-plugin-s3']:
+  package { ['swift-proxy', 'swift-plugin-s3', 'python-keystonemiddleware']:
     ensure => present,
     tag    => 'openstack',
-  }
-
-  case $swift::openstack_version {
-    'icehouse': {}
-    default:    { package { 'python-keystonemiddleware': ensure => present } }
   }
 
   if $swift::enable_ceilometer {
