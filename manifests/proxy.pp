@@ -17,14 +17,9 @@ class swift::proxy($listen='0.0.0.0',
 
   $total_procs = 1 + $workers
 
-  package { ['swift-proxy', 'swift-plugin-s3']:
+  package { ['swift-proxy', 'swift-plugin-s3', 'python-keystonemiddleware']:
     ensure => present,
     tag    => 'openstack',
-  }
-
-  case $swift::openstack_version {
-    'icehouse': {}
-    default:    { package { 'python-keystonemiddleware': ensure => present } }
   }
 
   if $swift::enable_ceilometer {
@@ -38,7 +33,6 @@ class swift::proxy($listen='0.0.0.0',
       mode  => '0660',
     }
   }
-
 
   file { '/etc/swift/proxy-server.conf':
     ensure  => file,
@@ -65,7 +59,7 @@ class swift::proxy($listen='0.0.0.0',
   }
 
   firewall { '100 swift-proxy':
-    dport   => 8888,
+    dport  => 8888,
     proto  => tcp,
     action => accept,
   }
@@ -92,7 +86,7 @@ class swift::proxy($listen='0.0.0.0',
 
   nagios::nrpe::service {
     'swift_object_servers':
-      check_command => "sudo /usr/local/lib/nagios/plugins/check_swift_object_servers"
+      check_command => 'sudo /usr/local/lib/nagios/plugins/check_swift_object_servers'
   }
 
   file { '/usr/local/lib/nagios/plugins/check_swift_object_servers':
@@ -104,10 +98,10 @@ class swift::proxy($listen='0.0.0.0',
   }
 
   file { '/etc/sudoers.d/nagios_swift_object_servers':
-    owner   => root,
-    group   => root,
-    mode    => '0440',
-    source  => 'puppet:///modules/swift/sudoers_nagios_swift_object_servers',
+    owner  => root,
+    group  => root,
+    mode   => '0440',
+    source => 'puppet:///modules/swift/sudoers_nagios_swift_object_servers',
   }
 
 
