@@ -108,8 +108,6 @@ class swift::proxy($listen='0.0.0.0',
   $nagios_keystone_user = hiera('nagios::keystone_user')
   $nagios_keystone_pass = hiera('nagios::keystone_pass')
   $nagios_keystone_tenant = hiera('nagios::keystone_tenant')
-  $nagios_image_count = hiera('nagios::image_count')
-  $nagios_image = hiera('nagios::image')
   $nagios_swift_region = hiera('nagios::swift_region', '')
 
   nagios::service { 'check_swift':
