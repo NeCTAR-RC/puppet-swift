@@ -1,8 +1,11 @@
 # Openstack Swift
-class swift($swift_hash,
-            $converged_node=false,
-            $multi_daemon_config=false,
-            $enable_ceilometer=false) {
+class swift(
+  $swift_hash,
+  $converged_node=false,
+  $multi_daemon_config=false,
+  $enable_ceilometer=false,
+  $memcache_servers=hiera('swift::proxy::memcache_servers'),
+) {
 
   $openstack_version = hiera('openstack_version')
 
@@ -40,11 +43,17 @@ class swift($swift_hash,
     require => File['/etc/swift'],
   }
 
-  file { '/etc/swift/memcache.conf':
-    ensure  => file,
-    owner   => swift,
-    group   => swift,
-    content => template("swift/${openstack_version}/memcache.conf.erb"),
-    require => File['/etc/swift'],
+  if $memcache_servers {
+    file { '/etc/swift/memcache.conf':
+      ensure  => file,
+      owner   => swift,
+      group   => swift,
+      content => template("swift/${openstack_version}/memcache.conf.erb"),
+      require => File['/etc/swift'],
+    }
+  } else {
+    file { '/etc/swift/memcache.conf':
+      ensure => absent,
+    }
   }
 }
