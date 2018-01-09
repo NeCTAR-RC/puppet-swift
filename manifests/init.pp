@@ -1,20 +1,23 @@
 # Openstack Swift
-class swift($swift_hash,
-            $converged_node=false,
-            $multi_daemon_config=false,
-            $enable_ceilometer=false) {
+class swift(
+  $swift_hash,
+  $converged_node=false,
+  $multi_daemon_config=false,
+  $enable_ceilometer=false,
+  $memcache_servers=undef,
+) {
 
+  $real_memcache_servers = pick($memcache_servers, hiera('swift::proxy::memcache_servers'))
+  
   $openstack_version = hiera('openstack_version')
 
-  # Brief Description: 
   # These values define threshold limits (in seconds)
-  # for replicating swift accounts, containers and 
-  # objects. Warning and critical nagios alerts are 
+  # for replicating swift accounts, containers and
+  # objects. Warning and critical nagios alerts are
   # triggerred above these values
   # Current Values:
   # WARNING: 3 hours
   # CRITICAL: 8 Hours
-
   $nagios_warning_threshold = 10800
   $nagios_critical_threshold = 28800
 
@@ -40,11 +43,17 @@ class swift($swift_hash,
     require => File['/etc/swift'],
   }
 
-  file { '/etc/swift/memcache.conf':
-    ensure  => file,
-    owner   => swift,
-    group   => swift,
-    content => template("swift/${openstack_version}/memcache.conf.erb"),
-    require => File['/etc/swift'],
+  if $memcache_servers {
+    file { '/etc/swift/memcache.conf':
+      ensure  => file,
+      owner   => swift,
+      group   => swift,
+      content => template("swift/memcache.conf.erb"),
+      require => File['/etc/swift'],
+    }
+  } else {
+    file { '/etc/swift/memcache.conf':
+      ensure => absent,
+    }
   }
 }
