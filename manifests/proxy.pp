@@ -1,15 +1,16 @@
-class swift::proxy($listen='0.0.0.0',
-                   $port=8888,
-                   $ssl=true,
-                   $keystone_user,
-                   $keystone_password,
-                   $workers=8,
-                   $read_affinity=false,
-                   $write_affinity=false,
-                   $write_affinity_node_count=1,
-                   $account_autocreate=true,
-                   $memcache_servers) inherits swift
-{
+# Swift Proxy class
+class swift::proxy(
+  $listen='0.0.0.0',
+  $port=8888,
+  $ssl=true,
+  $keystone_user,
+  $keystone_password,
+  $workers=8,
+  $read_affinity=false,
+  $write_affinity=false,
+  $write_affinity_node_count=1,
+  $account_autocreate=true,
+) inherits swift {
 
   $keystone_host = hiera('keystone::host')
   $keystone_protocol = hiera('keystone::protocol')
