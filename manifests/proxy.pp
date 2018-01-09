@@ -46,7 +46,8 @@ class swift::proxy($listen='0.0.0.0',
   service { 'swift-proxy':
     ensure    => running,
     enable    => true,
-    subscribe => File['/etc/swift/swift.conf'],
+    subscribe => [File['/etc/swift/swift.conf'],
+                  File['/etc/swift/memcache.conf']],
   }
 
   firewall { '100 swift-proxy':

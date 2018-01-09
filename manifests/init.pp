@@ -45,7 +45,6 @@ class swift($swift_hash,
     owner   => swift,
     group   => swift,
     content => template("swift/${openstack_version}/memcache.conf.erb"),
-    notify  => Service['swift-proxy'],
-    require => Package['swift-proxy'],
+    require => File['/etc/swift'],
   }
 }
