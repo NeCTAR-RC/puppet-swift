@@ -18,6 +18,7 @@ import argparse
 import sys
 import json
 import requests
+from time import time
 
 STATE_OK = 0
 STATE_WARNING = 1
@@ -52,7 +53,8 @@ except requests.exceptions.HTTPError:
 
 try:
     stats = json.loads(report.text)
-    replication_time = float(stats['replication_time'])
+    replication_last = float(stats['replication_last'])
+    delta_time = float(time()) - replication_last
 except ValueError:
     raise
     state = STATE_UNKNOWN
@@ -60,17 +62,18 @@ except ValueError:
 
 state = STATE_OK
 msgs = []
-if replication_time > args.warning and replication_time < args.critical:
-    msgs.append("WARNING : %s replication time is %s"
-                % (entity, replication_time))
+if  delta_time > args.warning and delta_time < args.critical:
+    msgs.append("WARNING : it has been %s sec since last %s replication"
+                % (delta_time, entity))
     state = max(state, STATE_WARNING)
 
-elif replication_time > args.critical:
-    msgs.append("CRITICAL: %s replication time is %s"
-                % (entity, replication_time))
+elif delta_time > args.critical:
+    msgs.append("CRITICAL: it has been %s sec since last %s replication"
+                % (delta_time, entity))
     state = max(state, STATE_CRITICAL)
 else:
-    msgs.append("OK : %s replication time is %s" % (entity, replication_time))
+    msgs.append("OK : it has been %s sec since last %s replication"
+                % (delta_time, entity))
     pass
 
 print ", ".join(msgs)
