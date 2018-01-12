@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5ab14c1_eb468146",
+        "filename": "manifests/init.pp",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2018-01-12T02:32:31Z",
+      "side": 1,
+      "message": "ws",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 2
+      },
+      "revId": "537b90c6723ef7bf8f11163af3534fbdbe41c28f",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de391c3e_8b77d92c",
+        "filename": "manifests/init.pp",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2018-01-12T02:32:31Z",
+      "side": 1,
+      "message": "could remove this",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "537b90c6723ef7bf8f11163af3534fbdbe41c28f",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
