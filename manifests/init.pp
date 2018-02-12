@@ -43,6 +43,8 @@ class swift(
   }
 
   if $real_memcache_servers {
+    include ::memcached
+
     file { '/etc/swift/memcache.conf':
       owner   => swift,
       group   => swift,
