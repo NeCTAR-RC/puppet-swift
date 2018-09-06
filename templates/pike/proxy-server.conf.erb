@@ -36,14 +36,15 @@ cache = swift.cache
 paste.filter_factory = keystonemiddleware.auth_token:filter_factory
 # Delaying the auth decision is required to support token-less
 # usage for anonymous referrers ('.r:*').
+auth_type = v3password
+auth_url = <%= @keystone_protocol %>://<%= @keystone_host %>:5000/v3
+username = <%= @keystone_user %>
+password = <%= @keystone_password %>
+project_name = <%= @keystone_service_tenant %>
+user_domain_name = default
+project_domain_name = default
+
 delay_auth_decision = 1
-auth_port = 35357
-auth_host = <%= @keystone_host %>
-auth_protocol = <%= @keystone_protocol %>
-admin_tenant_name = <%= @keystone_service_tenant %>
-admin_user = <%= @keystone_user %>
-admin_password = <%= @keystone_password %>
-signing_dir = /etc/swift
 cache = swift.cache
 include_service_catalog = False
 
