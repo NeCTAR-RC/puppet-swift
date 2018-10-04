@@ -8,7 +8,7 @@ workers = <%= @workers %>
 <% if @enable_ceilometer -%>
 pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas slo dlo container-quotas ceilometer proxy-logging proxy-server versioned_writes
 <% else -%>
-pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas slo dlo container-quotas proxy-logging proxy-server
+pipeline = healthcheck cache tempurl formpost bulk swift3 s3token authtoken keystone staticweb account-quotas slo dlo container-quotas versioned_writes proxy-logging proxy-server
 <% end -%>
 
 [app:proxy-server]
