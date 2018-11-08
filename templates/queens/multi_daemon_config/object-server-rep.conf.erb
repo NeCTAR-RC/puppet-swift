@@ -1,0 +1,13 @@
+[DEFAULT]
+bind_ip = <%= @ipaddress_repnet %>
+bind_port = <%= @object_rep_port %>
+workers = <%= @workers %>
+
+[pipeline:main]
+pipeline = object-server
+
+[app:object-server]
+use = egg:swift#object
+replication_server = True
+
+[object-replicator]
