@@ -3,7 +3,6 @@ class swift(
   $swift_hash,
   $converged_node=false,
   $multi_daemon_config=false,
-  $enable_ceilometer=false,
   $memcache_servers=undef,
 ) {
 

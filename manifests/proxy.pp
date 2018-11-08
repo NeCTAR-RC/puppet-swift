@@ -23,18 +23,6 @@ class swift::proxy(
     tag    => 'openstack',
   }
 
-  if $swift::enable_ceilometer {
-    Package['swift-proxy'] {
-      require => Package['ceilometer-common'],
-    }
-
-    file { '/var/log/ceilometer/swift-proxy-server.log':
-      owner => 'swift',
-      group => 'swift',
-      mode  => '0660',
-    }
-  }
-
   file { '/etc/swift/proxy-server.conf':
     ensure  => file,
     owner   => swift,
