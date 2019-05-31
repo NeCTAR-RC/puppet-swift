@@ -67,7 +67,8 @@ class swift::proxy(
 
   nagios::nrpe::service {
     'swift_object_servers':
-      check_command => 'sudo /usr/local/lib/nagios/plugins/check_swift_object_servers'
+      check_command => 'sudo /usr/local/lib/nagios/plugins/check_swift_object_servers',
+      nrpe_command => 'check_nrpe_slow_1arg',
   }
 
   file { '/usr/local/lib/nagios/plugins/check_swift_object_servers':
