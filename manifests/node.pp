@@ -23,9 +23,10 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
   }
 
   file { '/srv/node':
-    ensure => directory,
-    owner  => swift,
-    group  => swift,
+    ensure  => directory,
+    owner   => swift,
+    group   => swift,
+    require => Package['swift'],
   }
 
   package { ['xfsprogs', 'python-requests']:
