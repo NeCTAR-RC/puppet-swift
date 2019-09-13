@@ -40,22 +40,22 @@ class swift::proxy(
   }
 
   firewall { '100 swift-proxy':
-    dport  => 8888,
+    dport  => $port,
     proto  => tcp,
     action => accept,
   }
 
   if $ssl {
     nagios::service {
-      'http_swift-proxy_8888':
-        check_command => 'check_swift_ssl!8888',
+      'https_swift-proxy':
+        check_command => "check_swift_ssl!${port}",
         servicegroups => 'openstack-endpoints';
     }
   }
   else {
     nagios::service {
-      'http_swift-proxy_8888':
-        check_command => 'check_swift!8888',
+      'http_swift-proxy':
+        check_command => "check_swift!${port}",
         servicegroups => 'openstack-endpoints';
     }
   }
