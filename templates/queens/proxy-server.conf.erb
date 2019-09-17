@@ -174,3 +174,9 @@ use = egg:swift#symlink
 # symlinks exceeds the limit symloop_max a 409 (HTTPConflict) error
 # response will be produced.
 # symloop_max = 2
+
+[filter:domain_remap]
+use = egg:swift#domain_remap
+# Specify the storage_domain that match your cloud, multiple domains
+# can be specified separated by a comma
+storage_domain = swift.rc.nectar.org.au
