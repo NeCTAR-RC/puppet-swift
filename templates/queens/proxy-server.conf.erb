@@ -8,7 +8,7 @@ bind_port = <%= @port %>
 workers = <%= @workers %>
 
 [pipeline:main]
-pipeline = catch_errors gatekeeper healthcheck proxy-logging cache bulk tempurl ratelimit swift3 authtoken s3token keystoneauth copy staticweb container-quotas account-quotas slo dlo versioned_writes symlink proxy-logging proxy-server
+pipeline = catch_errors gatekeeper healthcheck proxy-logging cache bulk domain_remap tempurl ratelimit swift3 authtoken s3token keystoneauth copy staticweb container-quotas account-quotas slo dlo versioned_writes symlink proxy-logging proxy-server
 
 [app:proxy-server]
 use = egg:swift#proxy
@@ -174,3 +174,9 @@ use = egg:swift#symlink
 # symlinks exceeds the limit symloop_max a 409 (HTTPConflict) error
 # response will be produced.
 # symloop_max = 2
+
+[filter:domain_remap]
+use = egg:swift#domain_remap
+# Specify the storage_domain that match your cloud, multiple domains
+# can be specified separated by a comma
+storage_domain = <%= storage_domain %>
