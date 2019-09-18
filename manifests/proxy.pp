@@ -1,10 +1,11 @@
 # Swift Proxy class
 class swift::proxy(
+  $storage_domain,
+  $keystone_user,
+  $keystone_password,
   $listen='0.0.0.0',
   $port=8888,
   $ssl=true,
-  $keystone_user,
-  $keystone_password,
   $workers=8,
   $read_affinity=false,
   $write_affinity=false,
