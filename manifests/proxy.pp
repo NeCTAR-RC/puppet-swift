@@ -5,6 +5,7 @@ class swift::proxy(
   $ssl=true,
   $keystone_user,
   $keystone_password,
+  $storage_domain,
   $workers=8,
   $read_affinity=false,
   $write_affinity=false,
