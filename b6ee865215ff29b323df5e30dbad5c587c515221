@@ -22,6 +22,30 @@
       "revId": "b6ee865215ff29b323df5e30dbad5c587c515221",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7549a9_23aab1e4",
+        "filename": "templates/queens/proxy-server.conf.erb",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000169
+      },
+      "writtenOn": "2019-09-18T06:45:57Z",
+      "side": 1,
+      "message": "Cannot figure this out Sam from https://docs.openstack.org/swift/queens/middleware.html#module-swift.common.middleware.domain_remap. Probably before catch_errors as the sequence in https://github.com/openstack/swift/blob/master/etc/proxy-server.conf-sample.",
+      "parentUuid": "a5348f64_8083a90c",
+      "range": {
+        "startLine": 11,
+        "startChar": 235,
+        "endLine": 11,
+        "endChar": 247
+      },
+      "revId": "b6ee865215ff29b323df5e30dbad5c587c515221",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
     }
   ]
 }
