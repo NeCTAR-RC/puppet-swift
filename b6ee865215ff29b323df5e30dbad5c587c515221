@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5348f64_8083a90c",
+        "filename": "templates/queens/proxy-server.conf.erb",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-09-18T06:24:50Z",
+      "side": 1,
+      "message": "it can\u0027t go after proxy-server, not sure where it should fit in, what do the docs say?",
+      "range": {
+        "startLine": 11,
+        "startChar": 235,
+        "endLine": 11,
+        "endChar": 247
+      },
+      "revId": "b6ee865215ff29b323df5e30dbad5c587c515221",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
+    }
+  ]
+}
