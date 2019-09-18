@@ -10,6 +10,7 @@ class swift::proxy(
   $write_affinity=false,
   $write_affinity_node_count=1,
   $account_autocreate=true,
+  $storage_domain,
 ) inherits swift {
 
   $keystone_host = hiera('keystone::host')
