@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50b48700_6a62120d",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-09-19T22:15:39Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be required else this change becomes backwards incompatible.",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "8022395c5f4842fbe3c58c6dbe9226d636b4b7b1",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
+    }
+  ]
+}
