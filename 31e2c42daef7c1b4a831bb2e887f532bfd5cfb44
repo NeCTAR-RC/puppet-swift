@@ -46,6 +46,30 @@
       "revId": "31e2c42daef7c1b4a831bb2e887f532bfd5cfb44",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "472e74e7_ea62a29b",
+        "filename": "templates/queens/proxy-server.conf.erb",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-09-19T06:01:46Z",
+      "side": 1,
+      "message": "no it would just be like storage_domain \u003d \u003c%\u003d storage_domain %\u003e\n\nAnd then declare that as a class argument in swift::proxy class",
+      "parentUuid": "457f4d6c_7bad3c9d",
+      "range": {
+        "startLine": 182,
+        "startChar": 17,
+        "endLine": 182,
+        "endChar": 39
+      },
+      "revId": "31e2c42daef7c1b4a831bb2e887f532bfd5cfb44",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
     }
   ]
 }
