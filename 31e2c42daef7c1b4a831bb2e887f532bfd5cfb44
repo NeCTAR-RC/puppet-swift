@@ -22,6 +22,30 @@
       "revId": "31e2c42daef7c1b4a831bb2e887f532bfd5cfb44",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "457f4d6c_7bad3c9d",
+        "filename": "templates/queens/proxy-server.conf.erb",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000169
+      },
+      "writtenOn": "2019-09-19T04:57:16Z",
+      "side": 1,
+      "message": "You are right probably:\nstorage_domain \u003d \u003c%\u003d scope[\u0027Which Hiera Variable\u0027] %\u003e\n\nLet me know",
+      "parentUuid": "f8e43676_d2ed3df6",
+      "range": {
+        "startLine": 182,
+        "startChar": 17,
+        "endLine": 182,
+        "endChar": 39
+      },
+      "revId": "31e2c42daef7c1b4a831bb2e887f532bfd5cfb44",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
     }
   ]
 }
