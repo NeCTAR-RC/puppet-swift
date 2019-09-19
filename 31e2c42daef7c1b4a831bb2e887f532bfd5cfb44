@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8e43676_d2ed3df6",
+        "filename": "templates/queens/proxy-server.conf.erb",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-09-19T02:38:03Z",
+      "side": 1,
+      "message": "I think this needs to be a config option as opposed to hard coded. eg. this config is not just used for nectar prod cloud. It might mean if no config for this option then this middleware isn\u0027t enabled",
+      "range": {
+        "startLine": 182,
+        "startChar": 17,
+        "endLine": 182,
+        "endChar": 39
+      },
+      "revId": "31e2c42daef7c1b4a831bb2e887f532bfd5cfb44",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
+    }
+  ]
+}
