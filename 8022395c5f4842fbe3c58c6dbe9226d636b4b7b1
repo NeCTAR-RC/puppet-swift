@@ -70,6 +70,30 @@
       "revId": "8022395c5f4842fbe3c58c6dbe9226d636b4b7b1",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5679741_c746fadc",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-09-24T22:59:58Z",
+      "side": 1,
+      "message": "Need a change in puppet-site-rctest and puppet-site-nectar to set this variable before this can merge",
+      "parentUuid": "4fc490a4_709f65c7",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "8022395c5f4842fbe3c58c6dbe9226d636b4b7b1",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
     }
   ]
 }
