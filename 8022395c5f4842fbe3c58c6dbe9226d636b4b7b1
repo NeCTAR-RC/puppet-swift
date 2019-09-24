@@ -46,6 +46,30 @@
       "revId": "8022395c5f4842fbe3c58c6dbe9226d636b4b7b1",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fc490a4_709f65c7",
+        "filename": "manifests/proxy.pp",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000169
+      },
+      "writtenOn": "2019-09-24T03:49:26Z",
+      "side": 1,
+      "message": "Would you know the appropriate reviewers Sam?",
+      "parentUuid": "9e023dec_711ff602",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "8022395c5f4842fbe3c58c6dbe9226d636b4b7b1",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
     }
   ]
 }
