@@ -19,9 +19,18 @@ class swift::proxy(
 
   $total_procs = 1 + $workers
 
-  package { ['swift-proxy', 'swift-plugin-s3', 'python-keystonemiddleware']:
-    ensure => present,
-    tag    => 'openstack',
+  $openstack_version = hiera('openstack_version')
+  if $openstack_version[0] > 'r' {
+    package { 'swift-proxy':
+      ensure => present,
+      tag    => 'openstack',
+    }
+  }
+  else {
+    package { ['swift-proxy', 'swift-plugin-s3', 'python-keystonemiddleware']:
+      ensure => present,
+      tag    => 'openstack',
+    }
   }
 
   file { '/etc/swift/proxy-server.conf':
