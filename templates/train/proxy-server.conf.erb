@@ -8,7 +8,7 @@ bind_port = <%= @port %>
 workers = <%= @workers %>
 
 [pipeline:main]
-pipeline = catch_errors gatekeeper healthcheck proxy-logging cache bulk domain_remap tempurl ratelimit swift3 authtoken s3token keystoneauth copy staticweb container-quotas account-quotas slo dlo versioned_writes symlink proxy-logging proxy-server
+pipeline = catch_errors gatekeeper healthcheck proxy-logging cache bulk domain_remap tempurl ratelimit s3api authtoken s3token keystoneauth copy staticweb container-quotas account-quotas slo dlo versioned_writes symlink proxy-logging proxy-server
 
 [app:proxy-server]
 use = egg:swift#proxy
@@ -49,7 +49,7 @@ is_admin = true
 cache = swift.cache
 
 [filter:s3token]
-paste.filter_factory = swift3.s3_token_middleware:filter_factory
+use = egg:swift#s3token
 auth_uri = <%= @keystone_protocol %>://<%= @keystone_host %>:5000
 auth_version = 3
 delay_auth_decision = True
@@ -74,8 +74,8 @@ use = egg:swift#healthcheck
 use = egg:swift#proxy_logging
 set log_facility = LOG_USER
 
-[filter:swift3]
-use = egg:swift3#swift3
+[filter:s3api]
+use = egg:swift#s3api
 
 [filter:tempurl]
 use = egg:swift#tempurl
