@@ -54,6 +54,15 @@ auth_uri = <%= @keystone_protocol %>://<%= @keystone_host %>:5000
 auth_version = 3
 delay_auth_decision = True
 
+secret_cache_duration = <%= @secret_cache_duration %>
+auth_url = <%= @keystone_protocol %>://<%= @keystone_host %>:5000
+auth_type = password
+project_domain_id = default
+project_name = service
+user_domain_id = default
+username = swift
+password = <%= @keystone_password %>
+
 [filter:container-quotas]
 use = egg:swift#container_quotas
 
