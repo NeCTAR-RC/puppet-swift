@@ -50,7 +50,7 @@ cache = swift.cache
 
 [filter:s3token]
 use = egg:swift#s3token
-auth_uri = <%= @keystone_protocol %>://<%= @keystone_host %>:5000
+auth_uri = <%= @keystone_protocol %>://<%= @keystone_host %>:5000/v3
 auth_version = 3
 delay_auth_decision = True
 
