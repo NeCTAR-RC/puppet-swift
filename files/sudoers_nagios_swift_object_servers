@@ -1,1 +1,0 @@
-nagios  ALL=NOPASSWD:/usr/local/lib/nagios/plugins/check_swift_object_servers
