@@ -7,8 +7,6 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
 
   if $swift::multi_daemon_config == false {
 
-    $total_procs = 1 + $workers
-
     file { '/etc/swift/container-server.conf':
       ensure  => present,
       owner   => swift,
@@ -46,8 +44,6 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
     }
 
   } else {
-
-    $total_procs = (1 + $workers) * 2
 
     $ipaddress_regnet = hiera('swift::ipaddress_regnet')
     $ipaddress_repnet = hiera('swift::ipaddress_repnet')
@@ -143,34 +139,6 @@ class swift::container($workers=2, $allow_versions=false) inherits swift {
                      File['/etc/swift/swift.conf']],
     }
 
-  }
-
-  if $swift::multi_daemon_config == false {
-    nagios::service {
-      'http_swift-container_6001':
-        check_command => 'check_swift_internal!6001';
-    }
-  }
-  else {
-    nagios::service {
-      'http_swift-container_6001':
-        check_command => "check_swift_internal_ip!6001!${ipaddress_regnet}";
-    }
-    nagios::service {
-      "http_swift-container_${container_rep_port}":
-        check_command => "check_swift_internal_ip!${container_rep_port}!${ipaddress_repnet}";
-    }
-  }
-
-  nagios::nrpe::service {
-    'service_swift-container-server':
-      check_command => "/usr/lib/nagios/plugins/check_procs -c ${total_procs}:${total_procs} -u swift -a /usr/bin/swift-container-server";
-    'service_swift-container-replicator':
-      check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-container-replicator";
-    'service_swift-container_replication_last':
-      check_command => "/usr/local/lib/nagios/plugins/check_replication_last -e container -w ${swift::nagios_warning_threshold} -c ${swift::nagios_critical_threshold}";
-    'service_swift-container-updater':
-      check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-container-updater";
   }
 
 }

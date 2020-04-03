@@ -10,16 +10,6 @@ class swift(
 
   $openstack_version = hiera('openstack_version')
 
-  # These values define threshold limits (in seconds)
-  # for replicating swift accounts, containers and
-  # objects. Warning and critical nagios alerts are
-  # triggerred above these values
-  # Current Values:
-  # WARNING: 3 hours
-  # CRITICAL: 8 Hours
-  $nagios_warning_threshold = 10800
-  $nagios_critical_threshold = 28800
-
   package { 'swift':
     ensure => installed,
     tag    => 'openstack',

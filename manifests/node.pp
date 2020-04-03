@@ -86,33 +86,9 @@ class swift::node($rsync_connections=2, $max_connections=262144) inherits swift 
     notify  => Exec['sysctl-swift'],
   }
 
-  file { '/usr/local/lib/nagios/plugins/check_replication_last':
-    ensure => present,
-    owner  => root,
-    group  => root,
-    mode   => '0775',
-    source => 'puppet:///modules/swift/check_replication_last',
-  }
-
   exec { 'sysctl-swift':
     command => '/sbin/sysctl -p /etc/sysctl.d/60-swift.conf',
     unless  => "/usr/bin/test `sysctl -e -n net.nf_conntrack_max` -eq $max_connections",
-  }
-
-  $stg_hosts = hiera('firewall::swift_storage_hosts', [])
-  nectar::firewall::multisource {[ prefix($stg_hosts, '100 swift-node,') ]:
-    proto  => 'tcp',
-    dport  => [873, 6000, 6001, 6002],
-    action => accept,
-  }
-
-  if $multi_daemon_config == true {
-    $rep_hosts = hiera('firewall::swift_rep_hosts', [])
-    nectar::firewall::multisource {[ prefix($rep_hosts, '101 swift-node-rep,') ]:
-      proto  => 'tcp',
-      dport  => [873, 6010, 6011, 6012],
-      action => accept,
-    }
   }
 
   include swift::object

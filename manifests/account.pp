@@ -7,8 +7,6 @@ class swift::account($workers=2) inherits swift {
 
   if $swift::multi_daemon_config == false {
 
-    $total_procs = 1 + $workers
-
     file { '/etc/swift/account-server.conf':
       ensure  => present,
       owner   => swift,
@@ -39,8 +37,6 @@ class swift::account($workers=2) inherits swift {
     }
 
   } else {
-
-    $total_procs = (1 + $workers) * 2
 
     $ipaddress_regnet = hiera('swift::ipaddress_regnet')
     $ipaddress_repnet = hiera('swift::ipaddress_repnet')
@@ -136,34 +132,6 @@ class swift::account($workers=2) inherits swift {
                      File['/etc/swift/swift.conf']],
     }
 
-  }
-
-  if $swift::multi_daemon_config == false {
-    nagios::service {
-      'http_swift-account_6002':
-        check_command => 'check_swift_internal!6002';
-    }
-  }
-  else {
-    nagios::service {
-      'http_swift-container_6002':
-        check_command => "check_swift_internal_ip!6002!${ipaddress_regnet}";
-    }
-    nagios::service {
-      "http_swift-container_${account_rep_port}":
-        check_command => "check_swift_internal_ip!${account_rep_port}!${ipaddress_repnet}";
-    }
-  }
-
-  nagios::nrpe::service {
-    'service_swift-account-server':
-      check_command => "/usr/lib/nagios/plugins/check_procs -c ${total_procs}:${total_procs} -u swift -a /usr/bin/swift-account-server";
-    'service_swift-account-replicator':
-      check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-account-replicator";
-    'service_swift-account_replication_last':
-      check_command => "/usr/local/lib/nagios/plugins/check_replication_last -e account -w ${swift::nagios_warning_threshold} -c ${swift::nagios_critical_threshold}";
-    'service_swift-account-auditor':
-      check_command => "/usr/lib/nagios/plugins/check_procs -c 1:${workers} -u swift -a /usr/bin/swift-account-auditor";
   }
 
 }
