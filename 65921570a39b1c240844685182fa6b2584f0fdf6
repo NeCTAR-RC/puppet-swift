@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08a12a50_7a7bb8da",
+        "filename": "manifests/proxy/s3token.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-05-06T23:08:18Z",
+      "side": 1,
+      "message": "were these variables meant to be added, I don\u0027t think they are related?",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "65921570a39b1c240844685182fa6b2584f0fdf6",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
+    }
+  ]
+}
