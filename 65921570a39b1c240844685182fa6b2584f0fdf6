@@ -22,6 +22,30 @@
       "revId": "65921570a39b1c240844685182fa6b2584f0fdf6",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5212bf1a_1db945d6",
+        "filename": "manifests/proxy/s3token.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000190
+      },
+      "writtenOn": "2020-05-07T01:20:08Z",
+      "side": 1,
+      "message": "I am not quite sure about this but got it from swift config, https://github.com/openstack/swift/blob/2e50b58170047007e843eef52b411bf164c6eafa/etc/proxy-server.conf-sample#L592",
+      "parentUuid": "08a12a50_7a7bb8da",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "65921570a39b1c240844685182fa6b2584f0fdf6",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
     }
   ]
 }
