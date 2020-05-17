@@ -1,6 +1,39 @@
 {
     "author": "Puppet Labs and OpenStack Contributors",
-    "dependencies": [],
+    "dependencies": [
+        {
+            "name": "puppetlabs/inifile",
+            "version_requirement": ">=2.0.0 <3.0.0"
+        },
+        {
+            "name": "openstack/keystone",
+            "version_requirement": ">=14.4.0 <16.0.0"
+        },
+        {
+            "name": "openstack/openstacklib",
+            "version_requirement": ">=14.4.0 <16.0.0"
+        },
+        {
+            "name": "puppetlabs/rsync",
+            "version_requirement": ">=1.1.0 <2.0.0"
+        },
+        {
+            "name": "puppetlabs/stdlib",
+            "version_requirement": ">=5.0.0 <6.0.0"
+        },
+        {
+            "name": "puppetlabs/xinetd",
+            "version_requirement": ">=1.0.1 <2.0.1"
+        },
+        {
+            "name": "puppetlabs/concat",
+            "version_requirement": ">=1.0.0 <3.0.0"
+        },
+        {
+            "name": "saz/memcached",
+            "version_requirement": ">=2.0.2 <3.0.0"
+        }
+    ],
     "description": "Installs and configures OpenStack Swift (Object Storage).",
     "issues_url": "https://bugs.launchpad.net/puppet-swift",
     "license": "Apache-2.0",
