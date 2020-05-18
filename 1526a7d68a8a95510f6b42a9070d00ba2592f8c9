@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "882b4759_abd22f12",
+        "filename": "manifests/storage/account.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-05-18T23:24:02Z",
+      "side": 1,
+      "message": "shouldn\u0027t it be this one that is set to stopped?",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 19
+      },
+      "revId": "1526a7d68a8a95510f6b42a9070d00ba2592f8c9",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
+    }
+  ]
+}
