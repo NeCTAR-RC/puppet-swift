@@ -205,6 +205,7 @@ define swift::storage::server(
   $network_chunk_size             = 65536,
   $disk_chunk_size                = 65536,
   $auditor_disk_chunk_size        = undef,
+  $rsync_timeout                  = 3600,
   $splice                         = false,
   $object_server_mb_per_sync      = 512,
 ) {
