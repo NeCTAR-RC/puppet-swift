@@ -29,6 +29,7 @@
 class swift::storage::account(
   $manage_service   = true,
   $enabled          = true,
+  $reaper_enabled   = false,
   $package_ensure   = 'present',
   $config_file_name = 'account-server.conf',
   $service_provider = $::swift::params::service_provider
@@ -46,7 +47,7 @@ class swift::storage::account(
   }
 
   if $manage_service {
-    if $enabled {
+    if $reaper_enabled {
       $service_ensure = 'running'
     } else {
       $service_ensure = 'stopped'
@@ -56,7 +57,7 @@ class swift::storage::account(
   swift::service { 'swift-account-reaper':
     os_family_service_name => $::swift::params::account_reaper_service_name,
     service_ensure         => $service_ensure,
-    enabled                => $enabled,
+    enabled                => $reaper_enabled,
     config_file_name       => $config_file_name,
     service_provider       => $service_provider,
     service_require        => Package['swift-account'],
