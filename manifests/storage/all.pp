@@ -143,6 +143,7 @@ class swift::storage::all(
   $object_server_workers          = $::os_workers,
   $rsync_timeout                  = 3600,
   $splice                         = false,
+  $max_connections                = 10,
 ) {
 
   include ::swift::deps
@@ -176,6 +177,7 @@ class swift::storage::all(
     log_statsd_default_sample_rate => $log_statsd_default_sample_rate,
     log_statsd_sample_rate_factor  => $log_statsd_sample_rate_factor,
     log_statsd_metric_prefix       => $log_statsd_metric_prefix,
+    max_connections                => $max_connections,
   }
 
   swift::storage::server { $account_port:
