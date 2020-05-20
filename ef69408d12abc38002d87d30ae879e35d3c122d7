@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23e9c25b_cc4915f0",
+        "filename": "manifests/storage.pp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-05-20T22:09:49Z",
+      "side": 1,
+      "message": "I would think this would need to be true to be backwards compatible?",
+      "range": {
+        "startLine": 24,
+        "startChar": 22,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "ef69408d12abc38002d87d30ae879e35d3c122d7",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": true
+    }
+  ]
+}
