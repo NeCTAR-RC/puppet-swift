@@ -20,14 +20,15 @@
 # Copyright 2011 Puppetlabs Inc, unless otherwise noted.
 #
 class swift::storage(
-  $storage_local_net_ip
+  $storage_local_net_ip,
+  $rsync_use_xinetd = true,
 ) {
 
   include ::swift::deps
 
   if !defined(Class['rsync::server']){
     class{ '::rsync::server':
-      use_xinetd => true,
+      use_xinetd => $rsync_use_xinetd,
       address    => $storage_local_net_ip,
       use_chroot => 'no',
     }
