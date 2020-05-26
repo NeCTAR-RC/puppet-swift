@@ -212,6 +212,7 @@ define swift::storage::server(
   $client_timeout                 = 60,
   $auditor_disk_chunk_size        = undef,
   $rsync_timeout                  = 3600,
+  $rsync_bwlimit                  = 0,
   $splice                         = false,
   $object_server_mb_per_sync      = 512,
 ) {
