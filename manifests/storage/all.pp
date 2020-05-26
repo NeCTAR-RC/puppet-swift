@@ -142,6 +142,7 @@ class swift::storage::all(
   $container_server_workers       = $::os_workers,
   $object_server_workers          = $::os_workers,
   $rsync_timeout                  = 3600,
+  $rsync_bwlimit                  = 0,
   $splice                         = false,
   $max_connections                = 10,
 ) {
@@ -213,6 +214,7 @@ class swift::storage::all(
     outgoing_chmod   => $outgoing_chmod,
     workers          => $object_server_workers,
     rsync_timeout    => $rsync_timeout,
+    rsync_bwlimit    => $rsync_bwlimit,
     splice           => $splice,
   }
 }

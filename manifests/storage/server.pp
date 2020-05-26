@@ -182,6 +182,7 @@ define swift::storage::server(
   $log_statsd_sample_rate_factor  = '1.0',
   $log_statsd_metric_prefix       = '',
   $rsync_timeout                  = 3600,
+  $rsync_bwlimit                  = 0,
   $splice                         = false,
 ) {
 
