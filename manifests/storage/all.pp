@@ -151,6 +151,7 @@ class swift::storage::all(
   $object_server_workers          = $::os_workers,
   $object_server_mb_per_sync      = 512,
   $rsync_timeout                  = 3600,
+  $rsync_bwlimit                  = 0,
   $splice                         = false,
   $max_connections                = 25,
 ) {
@@ -227,5 +228,6 @@ from 6002 to 6202 and will be changed in a later release')
     splice                    => $splice,
     object_server_mb_per_sync => $object_server_mb_per_sync,
     rsync_timeout             => $rsync_timeout,
+    rsync_bwlimit             => $rsync_bwlimit,
   }
 }
