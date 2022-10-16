@@ -1,5 +1,5 @@
 [gerrit]
-host=review.opendev.org
+host=review.rc.nectar.org.au
 port=29418
-project=openstack/puppet-swift.git
-defaultbranch=stable/zed
+project=NeCTAR-RC/puppet-swift.git
+defaultbranch=nectar/zed
